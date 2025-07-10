@@ -381,8 +381,45 @@
             color: white;
         }
     </style>
+
+<style>
+    /* === LOGIN – INÍCIO ==================================== */
+    .login-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#3498db,#2ecc71);z-index:20000;}
+    .login-card{width:100%;max-width:420px;padding:40px 32px;background:#fff;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.15);animation:fadeIn .6s ease;}
+    .login-card h2{margin-bottom:24px;text-align:center;color:#3498db;font-weight:700}
+    .login-card .form-control{height:48px;border-radius:8px}
+    .login-card .btn-login{width:100%;height:48px;border-radius:8px;font-weight:600;background:#3498db;border-color:#3498db}
+    .login-card .btn-login:hover{background:#2ecc71;border-color:#2ecc71}
+    .login-error{display:none;margin-top:12px;color:#e74c3c;text-align:center;font-weight:500}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    /* === LOGIN – FIM ======================================= */
+
+</style>
 </head>
 <body>
+
+<!-- === LOGIN – INÍCIO ================================= -->
+<div id="loginScreen" class="login-screen">
+  <div class="login-card">
+      <h2>Área Restrita</h2>
+      <div class="mb-3">
+          <label for="usuario" class="form-label">Usuário</label>
+          <input type="text" id="usuario" class="form-control" placeholder="Digite o usuário">
+      </div>
+      <div class="mb-3">
+          <label for="senha" class="form-label">Senha</label>
+          <input type="password" id="senha" class="form-control" placeholder="Digite a senha">
+      </div>
+      <button id="btnEntrar" class="btn btn-login">Entrar</button>
+      <div id="loginError" class="login-error">Usuário ou senha inválidos</div>
+  </div>
+</div>
+<!-- === LOGIN – FIM ==================================== -->
+
+<!-- === DASHBOARD (escondido até login) ================ -->
+<div id="dashboard" style="display:none;">
+
+
     <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="spinner-border text-primary" role="status">
@@ -1925,5 +1962,33 @@ const quantidadeVendedorMaisAvaliacoes = contagemAvaliacoesPorVendedor[vendedorM
             document.getElementById('dataAtualizacao').textContent = moment().format('DD/MM/YYYY HH:mm');
         });
     </script>
+
+</div>
+
+<!-- === LOGIN SCRIPT =================================== -->
+<script>
+  document.addEventListener('DOMContentLoaded',()=>{
+    const btn=document.getElementById('btnEntrar');
+    const scrn=document.getElementById('loginScreen');
+    const dash=document.getElementById('dashboard');
+    const err=document.getElementById('loginError');
+    function autenticar(){
+        const u=document.getElementById('usuario').value.trim();
+        const s=document.getElementById('senha').value.trim();
+        if(u==='admin' && s==='bialberto'){
+            err.style.display='none';
+            scrn.style.opacity='0';
+            setTimeout(()=>{scrn.style.display='none';dash.style.display='block';},400);
+        }else{
+            err.style.display='block';
+        }
+    }
+    btn.addEventListener('click',autenticar);
+    ['usuario','senha'].forEach(id=>{
+        document.getElementById(id).addEventListener('keyup',e=>{if(e.key==='Enter')autenticar();});
+    });
+  });
+</script>
+
 </body>
 </html>
