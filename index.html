@@ -274,6 +274,54 @@
             background-color: var(--dark-color);
             border-radius: 4px;
         }
+
+        /* Estilo para o campo de busca por placa */
+        .search-placa-container {
+            position: relative;
+        }
+        
+        .search-placa-input {
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 0.375rem 2.5rem 0.375rem 0.75rem;
+            font-size: 14px;
+            color: #000;
+            background-color: white;
+            width: 100%;
+        }
+        
+        .search-placa-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+            outline: 0;
+        }
+        
+        .search-placa-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            pointer-events: none;
+        }
+        
+        .clear-search-btn {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            padding: 0;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .clear-search-btn:hover {
+            color: var(--danger-color);
+        }
         
         @media (max-width: 768px) {
             .dashboard-header {
@@ -456,6 +504,16 @@
                     <h2 class="filter-title">Filtros</h2>
                     <div class="row">
                         <div class="col-md-4 mb-3">
+                            <label for="buscaPlaca" class="form-label">Buscar por Placa</label>
+                            <div class="search-placa-container">
+                                <input type="text" class="search-placa-input" id="buscaPlaca" placeholder="Digite a placa do veículo...">
+                                <button type="button" class="clear-search-btn" id="clearSearchBtn" title="Limpar busca">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <i class="fas fa-search search-placa-icon"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
                             <label for="filtroMes" class="form-label">Mês</label>
                             <select class="form-select select2-multiple" id="filtroMes" multiple>
                                 <!-- Opções serão carregadas via JavaScript -->
@@ -473,13 +531,13 @@
                                 <!-- Opções serão carregadas via JavaScript -->
                             </select>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label for="filtroMarca" class="form-label">Marca</label>
                             <select class="form-select select2-multiple" id="filtroMarca" multiple>
                                 <!-- Opções serão carregadas via JavaScript -->
                             </select>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label for="filtroModelo" class="form-label">Modelo</label>
                             <select class="form-select select2-multiple" id="filtroModelo" multiple>
                                 <!-- Opções serão carregadas via JavaScript -->
@@ -727,6 +785,7 @@
         };
         let paginaAtual = 1;
         const itensPorPagina = 10;
+        let buscaPlacaAtiva = '';
         
         // Formatadores
         const formatadorMoeda = new Intl.NumberFormat('pt-BR', {
@@ -1544,6 +1603,10 @@ chartModelosFipe = new Chart(ctxModelosFipe, {
             const marcasSelecionadas = Array.from(document.getElementById('filtroMarca').selectedOptions).map(option => option.value);
             const modelosSelecionados = Array.from(document.getElementById('filtroModelo').selectedOptions).map(option => option.value);
             
+            // Obter busca por placa
+            const buscaPlaca = document.getElementById('buscaPlaca').value.trim().toLowerCase();
+            buscaPlacaAtiva = buscaPlaca;
+            
             // Mostrar overlay de carregamento
             document.getElementById('loadingOverlay').style.display = 'flex';
             
@@ -1555,7 +1618,11 @@ chartModelosFipe = new Chart(ctxModelosFipe, {
                 const marcaMatch = marcasSelecionadas.length === 0 || marcasSelecionadas.includes(item.Marca);
                 const modeloMatch = modelosSelecionados.length === 0 || modelosSelecionados.includes(item.Modelo);
                 
-                return mesMatch && lojaMatch && vendedorMatch && marcaMatch && modeloMatch;
+                // Filtro por placa
+                const placaMatch = buscaPlaca === '' || (item['Placa da Avaliação'] && 
+                    item['Placa da Avaliação'].toString().toLowerCase().includes(buscaPlaca));
+                
+                return mesMatch && lojaMatch && vendedorMatch && marcaMatch && modeloMatch && placaMatch;
             });
             
             // Calcular estatísticas
@@ -1576,6 +1643,14 @@ chartModelosFipe = new Chart(ctxModelosFipe, {
             // Atualizar storytelling
             gerarStorytelling();
             
+            // Mostrar/esconder botão de limpar busca
+            const clearBtn = document.getElementById('clearSearchBtn');
+            if (buscaPlaca) {
+                clearBtn.style.display = 'block';
+            } else {
+                clearBtn.style.display = 'none';
+            }
+            
             // Esconder overlay de carregamento
             document.getElementById('loadingOverlay').style.display = 'none';
         }
@@ -1584,6 +1659,11 @@ chartModelosFipe = new Chart(ctxModelosFipe, {
         function limparFiltros() {
             // Limpar seleções do Select2
             $('.select2-multiple').val(null).trigger('change');
+            
+            // Limpar busca por placa
+            document.getElementById('buscaPlaca').value = '';
+            document.getElementById('clearSearchBtn').style.display = 'none';
+            buscaPlacaAtiva = '';
             
             // Aplicar filtros (sem filtros selecionados = todos os dados)
             aplicarFiltros();
@@ -1680,8 +1760,15 @@ const quantidadeVendedorMaisAvaliacoes = contagemAvaliacoesPorVendedor[vendedorM
             const quantidadeLojaMaisAvaliacoes = lojasPorQuantidade[lojaMaisAvaliacoes];
             const percentualLojaMaisAvaliacoes = (quantidadeLojaMaisAvaliacoes / totalAvaliacoes * 100).toFixed(1);
             
+            // Adicionar informação sobre busca por placa se ativa
+            let textoBuscaPlaca = '';
+            if (buscaPlacaAtiva) {
+                textoBuscaPlaca = `<p><strong>Filtro ativo:</strong> Resultados filtrados pela placa "${buscaPlacaAtiva.toUpperCase()}".</p>`;
+            }
+            
             // Gerar texto de storytelling
             storyContent.innerHTML = `
+                ${textoBuscaPlaca}
                 <p>Analisando as <strong>${formatadorNumero.format(totalAvaliacoes)}</strong> avaliações de veículos, 
                 identificamos que a marca <strong>${marcaMaisAvaliada}</strong> representa 
                 <strong>${percentualMarcaMaisAvaliada}%</strong> do total, com 
@@ -1935,6 +2022,34 @@ const quantidadeVendedorMaisAvaliacoes = contagemAvaliacoesPorVendedor[vendedorM
             document.getElementById('btnExportarExcel').addEventListener('click', exportarExcel);
             document.getElementById('btnExportarPDF').addEventListener('click', exportarPDF);
             
+            // Campo de busca por placa
+            const buscaPlacaInput = document.getElementById('buscaPlaca');
+            const clearSearchBtn = document.getElementById('clearSearchBtn');
+            
+            // Aplicar filtro automaticamente ao digitar (com debounce)
+            let timeoutBusca;
+            buscaPlacaInput.addEventListener('input', (e) => {
+                clearTimeout(timeoutBusca);
+                timeoutBusca = setTimeout(() => {
+                    aplicarFiltros();
+                }, 500); // Aguarda 500ms após parar de digitar
+            });
+            
+            // Aplicar filtro ao pressionar Enter
+            buscaPlacaInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    clearTimeout(timeoutBusca);
+                    aplicarFiltros();
+                }
+            });
+            
+            // Botão para limpar busca
+            clearSearchBtn.addEventListener('click', () => {
+                buscaPlacaInput.value = '';
+                clearSearchBtn.style.display = 'none';
+                aplicarFiltros();
+            });
+            
             // Configurar tooltips do Bootstrap
             const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
             tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -1992,3 +2107,4 @@ const quantidadeVendedorMaisAvaliacoes = contagemAvaliacoesPorVendedor[vendedorM
 
 </body>
 </html>
+
