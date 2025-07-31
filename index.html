@@ -482,7 +482,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-8">
                             <h1 class="dashboard-title">Avaliações de Veículos 2025</h1>
-                            <p class="dashboard-subtitle">Desenvolvido por Alberto Mateus</p>
+                            <p class="dashboard-subtitle">Desenvolvido por Alberto Mateus para o Grupo San Marino</p>
                         </div>
                         <div class="col-md-4 text-md-end mt-3 mt-md-0">
                             <div class="upload-btn-wrapper">
@@ -618,7 +618,7 @@
                     <div class="stats-card-subtitle">Quilometragem média</div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-2-4 mb-4">
+            <div class="col-md-4 col-lg-2-4 mb-4">
                 <div class="stats-card fade-in">
                     <div class="card-icon">
                         <i class="fas fa-calendar-alt"></i>
@@ -628,7 +628,21 @@
                     <div class="stats-card-subtitle">Ano médio dos veículos</div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-2-4 mb-4">
+            <!-- KPI de Captação -->
+            <div class="col-md-4 col-lg-2-4 mb-4">
+                <div class="stats-card fade-in">
+                    <div class="card-icon">
+                        <!-- Ícone representando captação de veículos -->
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="stats-card-title">CAPTAÇÃO</h3>
+                    <!-- Quantidade de veículos captados -->
+                    <div class="stats-card-value" id="captacaoQuantidade">0</div>
+                    <!-- Percentual de captações em relação ao total de avaliações -->
+                    <div class="stats-card-subtitle"><span id="captacaoPercentual">0</span>% das avaliações</div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-2-4 mb-4">
                 <div class="stats-card fade-in">
                     <div class="card-icon">
                         <i class="fas fa-percentage"></i>
@@ -667,6 +681,16 @@
                 <div class="chart-container">
                     <h3 class="chart-title">Quantidade de Avaliações por Vendedor</h3>
                     <canvas id="chartAvaliacoesVendedor"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gráfico de Captação por Vendedor -->
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="chart-container">
+                    <h3 class="chart-title">Top 20 Vendedores em Captação</h3>
+                    <canvas id="chartCaptacaoVendedores"></canvas>
                 </div>
             </div>
         </div>
@@ -773,7 +797,11 @@
             ticket_medio: 0,
             km_media: 0,
             media_anos: 0,
-            media_percentual_fipe: 0
+            media_percentual_fipe: 0,
+            // Quantidade total de veículos captados (com Data de compra preenchida)
+            captacao_quantidade: 0,
+            // Percentual de captações em relação ao número de avaliações
+            captacao_percentual: 0
         };
         let graficos = {
             modelos_mais_vendidos: [],
@@ -781,7 +809,9 @@
             ticket_por_marca: [],
             ticket_por_vendedor: [],
             avaliacoes_por_marca: [],
-            avaliacoes_por_vendedor: []
+            avaliacoes_por_vendedor: [],
+            // Dados de captação por vendedor (será preenchido com os top 20 vendedores)
+            captacao_por_vendedor: []
         };
         let paginaAtual = 1;
         const itensPorPagina = 10;
@@ -844,6 +874,8 @@
         let chartAvaliacoesVendedor;
         let chartModelosVendidos;
         let chartModelosFipe;
+        // Gráfico de captação por vendedor (top 20)
+        let chartCaptacaoVendedores;
         
         // Função para processar arquivo Excel
         function processarArquivoExcel(arquivo) {
@@ -1039,6 +1071,18 @@
             quadros.media_percentual_fipe = dadosComFIPE.length > 0 
                 ? dadosComFIPE.reduce((sum, item) => sum + item.Percentual_FIPE, 0) / dadosComFIPE.length 
                 : 0;
+
+            // --- KPI de Captação ---
+            // Contabiliza quantos registros possuem a coluna "Data de compra" preenchida
+            const dadosComDataCompra = dadosFiltrados.filter(item => {
+                const campo = item['Data de compra'];
+                return campo !== undefined && campo !== null && String(campo).trim() !== '';
+            });
+            quadros.captacao_quantidade = dadosComDataCompra.length;
+            // Calcula o percentual de captação em relação ao total de avaliações
+            quadros.captacao_percentual = quadros.total_avaliacoes > 0 
+                ? (quadros.captacao_quantidade / quadros.total_avaliacoes) * 100 
+                : 0;
             
             // Atualizar quadros na interface
             atualizarQuadros();
@@ -1179,6 +1223,25 @@ graficos.modelos_proximos_fipe.sort((a, b) => Math.abs(100 - a.Percentual) - Mat
 if (graficos.modelos_proximos_fipe.length > 10) {
                 graficos.modelos_proximos_fipe = graficos.modelos_proximos_fipe.slice(0, 10);
             }
+
+            // Captação por vendedor (considera apenas registros com "Data de compra" preenchida)
+            const captacaoPorVendedor = {};
+            dadosFiltrados.forEach(item => {
+                const campo = item['Data de compra'];
+                if (campo !== undefined && campo !== null && String(campo).trim() !== '') {
+                    const vendedor = item.Vendedor || 'Não informado';
+                    captacaoPorVendedor[vendedor] = (captacaoPorVendedor[vendedor] || 0) + 1;
+                }
+            });
+            graficos.captacao_por_vendedor = Object.keys(captacaoPorVendedor).map(vendedor => ({
+                Vendedor: vendedor,
+                Quantidade: captacaoPorVendedor[vendedor]
+            }));
+            // Ordenar de forma decrescente e limitar aos top 20
+            graficos.captacao_por_vendedor.sort((a, b) => b.Quantidade - a.Quantidade);
+            if (graficos.captacao_por_vendedor.length > 20) {
+                graficos.captacao_por_vendedor = graficos.captacao_por_vendedor.slice(0, 20);
+            }
         }
         
         // Função para inicializar interface
@@ -1263,6 +1326,14 @@ if (graficos.modelos_proximos_fipe.length > 10) {
             document.getElementById('kmMedia').textContent = formatadorNumero.format(quadros.km_media);
             document.getElementById('mediaAnos').textContent = formatadorAno.format(quadros.media_anos);
             document.getElementById('percentualFipe').textContent = formatadorDecimal.format(quadros.media_percentual_fipe) + '%';
+
+            // Atualizar KPI de captação (quantidade e percentual)
+            const elemCaptacaoQtd = document.getElementById('captacaoQuantidade');
+            const elemCaptacaoPerc = document.getElementById('captacaoPercentual');
+            if (elemCaptacaoQtd && elemCaptacaoPerc) {
+                elemCaptacaoQtd.textContent = formatadorNumero.format(quadros.captacao_quantidade);
+                elemCaptacaoPerc.textContent = formatadorDecimal.format(quadros.captacao_percentual);
+            }
         }
         
         // Função para inicializar gráficos
@@ -1276,6 +1347,7 @@ if (graficos.modelos_proximos_fipe.length > 10) {
             // Destruir novos gráficos se existirem
             if (chartModelosVendidos) chartModelosVendidos.destroy();
             if (chartModelosFipe) chartModelosFipe.destroy();
+            if (chartCaptacaoVendedores) chartCaptacaoVendedores.destroy();
             
             // Gráfico de Ticket Médio por Marca
             const ctxTicketMarca = document.getElementById('chartTicketMarca').getContext('2d');
@@ -1498,6 +1570,42 @@ chartModelosFipe = new Chart(ctxModelosFipe, {
         }
     }
 });
+
+            // Gráfico de Captação por Vendedor
+            const ctxCaptacaoVendedores = document.getElementById('chartCaptacaoVendedores').getContext('2d');
+            const captacaoColors = graficos.captacao_por_vendedor.map((_, index) => coresPrimarias[index % coresPrimarias.length]);
+            const captacaoBorderColors = graficos.captacao_por_vendedor.map((_, index) => coresBordas[index % coresBordas.length]);
+            chartCaptacaoVendedores = new Chart(ctxCaptacaoVendedores, {
+                type: 'bar',
+                data: {
+                    labels: graficos.captacao_por_vendedor.map(item => item.Vendedor),
+                    datasets: [{
+                        label: 'Captações',
+                        data: graficos.captacao_por_vendedor.map(item => item.Quantidade),
+                        backgroundColor: captacaoColors,
+                        borderColor: captacaoBorderColors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.raw + ' captações';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { beginAtZero: true },
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
         }
         
         
