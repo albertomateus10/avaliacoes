@@ -105,7 +105,7 @@
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            height: 400px;
+            height: 600px;
         }
         
         .chart-title {
@@ -345,7 +345,7 @@
             }
             
             .chart-container {
-                height: 300px;
+                height: 500px;
             }
         }
         
@@ -1112,13 +1112,11 @@
             
             graficos.ticket_por_marca = Object.keys(ticketPorMarca).map(marca => ({
                 Marca: marca,
-                'Valor Avaliação': ticketPorMarca[marca] / contagemPorMarca[marca]
+                'Valor Avaliação': ticketPorMarca[marca] / contagemPorMarca[marca],
+                'Quantidade': contagemPorMarca[marca]
             }));
-            graficos.ticket_por_marca = graficos.ticket_por_marca.slice(0, 10);
-            
-            graficos.ticket_por_marca.sort((a, b) => b['Valor Avaliação'] - a['Valor Avaliação']);
+            graficos.ticket_por_marca.sort((a, b) => b["Valor Avaliação"] - a["Valor Avaliação"]);
             graficos.ticket_por_marca = graficos.ticket_por_marca.slice(0, 20);
-            graficos.ticket_por_marca = graficos.ticket_por_marca.slice(0, 10);
             
             // Ticket médio por vendedor
             const ticketPorVendedor = {};
@@ -1141,11 +1139,8 @@
                 Vendedor: vendedor,
                 'Valor Avaliação': ticketPorVendedor[vendedor] / contagemPorVendedor[vendedor]
             }));
-            graficos.ticket_por_vendedor = graficos.ticket_por_vendedor.slice(0, 10);
-            
-            graficos.ticket_por_vendedor.sort((a, b) => b['Valor Avaliação'] - a['Valor Avaliação']);
+            graficos.ticket_por_vendedor.sort((a, b) => b["Valor Avaliação"] - a["Valor Avaliação"]);
             graficos.ticket_por_vendedor = graficos.ticket_por_vendedor.slice(0, 20);
-            graficos.ticket_por_vendedor = graficos.ticket_por_vendedor.slice(0, 10);
             
             // Contagem de avaliações por marca
             const avaliacoesPorMarca = {};
@@ -1372,7 +1367,8 @@ if (graficos.modelos_proximos_fipe.length > 10) {
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    return formatadorMoeda.format(context.raw);
+                                    const marca = graficos.ticket_por_marca[context.dataIndex];
+                                    return formatadorMoeda.format(context.raw) + ' (' + formatadorNumero.format(marca.Quantidade) + ' avaliações)';
                                 }
                             }
                         }
@@ -2168,11 +2164,11 @@ const quantidadeVendedorMaisAvaliacoes = contagemAvaliacoesPorVendedor[vendedorM
             function ajustarLayout() {
                 if (window.innerWidth < 768) {
                     document.querySelectorAll('.chart-container').forEach(container => {
-                        container.style.height = '300px';
+                        container.style.height = '500px';
                     });
                 } else {
                     document.querySelectorAll('.chart-container').forEach(container => {
-                        container.style.height = '400px';
+                        container.style.height = '600px';
                     });
                 }
             }
