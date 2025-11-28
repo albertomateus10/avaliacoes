@@ -105,7 +105,7 @@
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            height: 600px;
+            height: 450px;
         }
         
         .chart-title {
@@ -192,44 +192,6 @@
             color: var(--primary-color);
         }
         
-        .highlight-value {
-            color: var(--primary-color);
-        }
-        
-        .badge-custom {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-weight: 500;
-            font-size: 12px;
-        }
-        
-        .badge-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .badge-success {
-            background-color: var(--success-color);
-            color: white;
-        }
-        
-        .badge-warning {
-            background-color: var(--warning-color);
-            color: white;
-        }
-        
-        .badge-danger {
-            background-color: var(--danger-color);
-            color: white;
-        }
-        
-        .badge-info {
-            background-color: var(--info-color);
-            color: white;
-        }
-        
         .table-responsive {
             max-height: 500px;
             overflow-y: auto;
@@ -266,16 +228,6 @@
             height: 3rem;
         }
         
-        .tooltip-inner {
-            max-width: 200px;
-            padding: 8px 12px;
-            color: #fff;
-            text-align: center;
-            background-color: var(--dark-color);
-            border-radius: 4px;
-        }
-
-        /* Estilo para o campo de busca por placa */
         .search-placa-container {
             position: relative;
         }
@@ -323,6 +275,53 @@
             color: var(--danger-color);
         }
         
+        .story-highlight {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .story-highlight-title {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .story-highlight-content {
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .export-buttons {
+            margin-bottom: 15px;
+        }
+        
+        .btn-export {
+            margin-right: 10px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-export:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-export-excel {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-export-pdf {
+            background-color: var(--danger-color);
+            border-color: var(--danger-color);
+            color: white;
+        }
+
         @media (max-width: 768px) {
             .dashboard-header {
                 padding: 15px;
@@ -345,130 +344,15 @@
             }
             
             .chart-container {
-                height: 500px;
+                height: 350px;
             }
-        }
-        
-        /* Animações */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideInUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        .slide-in-up {
-            animation: slideInUp 0.5s ease-in-out;
-        }
-        
-        /* Storytelling elements */
-        .story-highlight {
-            background-color: rgba(46, 204, 113, 0.1);
-            border-left: 4px solid var(--secondary-color);
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .story-highlight-title {
-            font-weight: 600;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-        
-        .story-highlight-content {
-            color: #333;
-            font-size: 14px;
-        }
-        
-        /* Botões de exportação */
-        .export-buttons {
-            margin-bottom: 15px;
-        }
-        
-        .btn-export {
-            margin-right: 10px;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-export:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-export-csv {
-            background-color: var(--success-color);
-            border-color: var(--success-color);
-            color: white;
-        }
-        
-        .btn-export-pdf {
-            background-color: var(--danger-color);
-            border-color: var(--danger-color);
-            color: white;
-        }
-        
-        .btn-export-excel {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: white;
         }
     </style>
-
-<style>
-    /* === LOGIN – INÍCIO ==================================== */
-    .login-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#3498db,#2ecc71);z-index:20000;}
-    .login-card{width:100%;max-width:420px;padding:40px 32px;background:#fff;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.15);animation:fadeIn .6s ease;}
-    .login-card h2{margin-bottom:24px;text-align:center;color:#3498db;font-weight:700}
-    .login-card .form-control{height:48px;border-radius:8px}
-    .login-card .btn-login{width:100%;height:48px;border-radius:8px;font-weight:600;background:#3498db;border-color:#3498db}
-    .login-card .btn-login:hover{background:#2ecc71;border-color:#2ecc71}
-    .login-error{display:none;margin-top:12px;color:#e74c3c;text-align:center;font-weight:500}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-    /* === LOGIN – FIM ======================================= */
-
-</style>
 </head>
 <body>
 
-<!-- === LOGIN – INÍCIO ================================= -->
-<div id="loginScreen" class="login-screen">
-  <div class="login-card">
-      <h2>Login</h2>
-      <div class="mb-3">
-          <label for="usuario" class="form-label">Usuário</label>
-          <input type="text" id="usuario" class="form-control" placeholder="Digite o usuário">
-      </div>
-      <div class="mb-3">
-          <label for="senha" class="form-label">Senha</label>
-          <input type="password" id="senha" class="form-control" placeholder="Digite a senha">
-      </div>
-      <button id="btnEntrar" class="btn btn-login">Entrar</button>
-      <div id="loginError" class="login-error">Usuário ou senha inválidos</div>
-  </div>
-</div>
-<!-- === LOGIN – FIM ==================================== -->
+<div id="dashboard">
 
-<!-- === DASHBOARD (escondido até login) ================ -->
-<div id="dashboard" style="display:none;">
-
-
-    <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Carregando...</span>
@@ -476,6 +360,7 @@
     </div>
 
     <div class="container-fluid">
+        <!-- Cabeçalho -->
         <div class="row">
             <div class="col-12">
                 <div class="dashboard-header">
@@ -515,33 +400,23 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="filtroMes" class="form-label">Mês</label>
-                            <select class="form-select select2-multiple" id="filtroMes" multiple>
-                                <!-- Opções serão carregadas via JavaScript -->
-                            </select>
+                            <select class="form-select select2-multiple" id="filtroMes" multiple></select>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="filtroLoja" class="form-label">Loja</label>
-                            <select class="form-select select2-multiple" id="filtroLoja" multiple>
-                                <!-- Opções serão carregadas via JavaScript -->
-                            </select>
+                            <select class="form-select select2-multiple" id="filtroLoja" multiple></select>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="filtroVendedor" class="form-label">Vendedor</label>
-                            <select class="form-select select2-multiple" id="filtroVendedor" multiple>
-                                <!-- Opções serão carregadas via JavaScript -->
-                            </select>
+                            <select class="form-select select2-multiple" id="filtroVendedor" multiple></select>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="filtroMarca" class="form-label">Marca</label>
-                            <select class="form-select select2-multiple" id="filtroMarca" multiple>
-                                <!-- Opções serão carregadas via JavaScript -->
-                            </select>
+                            <select class="form-select select2-multiple" id="filtroMarca" multiple></select>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="filtroModelo" class="form-label">Modelo</label>
-                            <select class="form-select select2-multiple" id="filtroModelo" multiple>
-                                <!-- Opções serão carregadas via JavaScript -->
-                            </select>
+                            <select class="form-select select2-multiple" id="filtroModelo" multiple></select>
                         </div>
                     </div>
                     <div class="row mt-2">
@@ -558,10 +433,10 @@
             </div>
         </div>
 
-        <!-- Storytelling Highlight -->
+        <!-- Storytelling -->
         <div class="row">
             <div class="col-12">
-                <div class="story-highlight slide-in-up" id="storyHighlight">
+                <div class="story-highlight" id="storyHighlight">
                     <h3 class="story-highlight-title">Insights das Avaliações</h3>
                     <div class="story-highlight-content" id="storyContent">
                         Carregando insights...
@@ -570,12 +445,10 @@
             </div>
         </div>
 
-        <!-- Botões de Exportação -->
+        <!-- Export -->
         <div class="row">
             <div class="col-12">
                 <div class="export-buttons text-end mb-3">
-                    
-                    </button>
                     <button id="btnExportarExcel" class="btn btn-export btn-export-excel">
                         <i class="fas fa-file-excel me-1"></i> Exportar Excel
                     </button>
@@ -586,10 +459,10 @@
             </div>
         </div>
 
-        <!-- Cards de Estatísticas -->
+        <!-- KPIs -->
         <div class="row">
             <div class="col-md-4 col-lg-2-4 mb-4">
-                <div class="stats-card fade-in">
+                <div class="stats-card">
                     <div class="card-icon">
                         <i class="fas fa-car-side"></i>
                     </div>
@@ -599,7 +472,7 @@
                 </div>
             </div>
             <div class="col-md-4 col-lg-2-4 mb-4">
-                <div class="stats-card fade-in">
+                <div class="stats-card">
                     <div class="card-icon">
                         <i class="fas fa-tag"></i>
                     </div>
@@ -609,7 +482,7 @@
                 </div>
             </div>
             <div class="col-md-4 col-lg-2-4 mb-4">
-                <div class="stats-card fade-in">
+                <div class="stats-card">
                     <div class="card-icon">
                         <i class="fas fa-road"></i>
                     </div>
@@ -619,7 +492,7 @@
                 </div>
             </div>
             <div class="col-md-4 col-lg-2-4 mb-4">
-                <div class="stats-card fade-in">
+                <div class="stats-card">
                     <div class="card-icon">
                         <i class="fas fa-calendar-alt"></i>
                     </div>
@@ -628,22 +501,20 @@
                     <div class="stats-card-subtitle">Ano médio dos veículos</div>
                 </div>
             </div>
-            <!-- KPI de Captação -->
             <div class="col-md-4 col-lg-2-4 mb-4">
-                <div class="stats-card fade-in">
+                <div class="stats-card">
                     <div class="card-icon">
-                        <!-- Ícone representando captação de veículos -->
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <h3 class="stats-card-title">CAPTAÇÃO</h3>
-                    <!-- Quantidade de veículos captados -->
                     <div class="stats-card-value" id="captacaoQuantidade">0</div>
-                    <!-- Percentual de captações em relação ao total de avaliações -->
-                    <div class="stats-card-subtitle"><span id="captacaoPercentual">0</span>% das avaliações</div>
+                    <div class="stats-card-subtitle">
+                        <span id="captacaoPercentual">0</span>% das avaliações
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 col-lg-2-4 mb-4">
-                <div class="stats-card fade-in">
+                <div class="stats-card">
                     <div class="card-icon">
                         <i class="fas fa-percentage"></i>
                     </div>
@@ -654,7 +525,7 @@
             </div>
         </div>
 
-        <!-- Gráficos -->
+        <!-- Gráficos principais -->
         <div class="row">
             <div class="col-md-6 mb-4">
                 <div class="chart-container">
@@ -670,6 +541,7 @@
             </div>
         </div>
 
+        <!-- Gráficos de quantidade -->
         <div class="row">
             <div class="col-md-6 mb-4">
                 <div class="chart-container">
@@ -685,7 +557,7 @@
             </div>
         </div>
 
-        <!-- Gráfico de Captação por Vendedor -->
+        <!-- Captação -->
         <div class="row">
             <div class="col-12 mb-4">
                 <div class="chart-container">
@@ -695,23 +567,23 @@
             </div>
         </div>
 
-        <!-- Novos Gráficos -->
-<div class="row">
-    <div class="col-md-6 mb-4">
-        <div class="chart-container">
-            <h3 class="chart-title">Top 10 Modelos Mais Avaliados</h3>
-            <canvas id="chartModelosVendidos"></canvas>
+        <!-- Novos gráficos -->
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="chart-container">
+                    <h3 class="chart-title">Top 10 Modelos Mais Avaliados</h3>
+                    <canvas id="chartModelosVendidos"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="chart-container">
+                    <h3 class="chart-title">Top 10 Modelos Mais Bem Pagos (FIPE ≈ 100%)</h3>
+                    <canvas id="chartModelosFipe"></canvas>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="col-md-6 mb-4">
-        <div class="chart-container">
-            <h3 class="chart-title">Top 10 Modelos Mais Bem Pagos (FIPE ≈ 100%)</h3>
-            <canvas id="chartModelosFipe"></canvas>
-        </div>
-    </div>
-</div>
 
-        <!-- Tabela de Avaliações -->
+        <!-- Tabela -->
         <div class="row">
             <div class="col-12">
                 <div class="table-section">
@@ -719,23 +591,21 @@
                     <div class="table-responsive">
                         <table class="table table-hover" id="tabelaAvaliacoes">
                             <thead>
-    <tr>
-        <th>Data</th>
-        <th>Loja</th>
-        <th>Vendedor</th>
-        <th>Cliente</th>
-        <th>Placa</th>
-        <th>Marca</th>
-        <th>Modelo</th>
-        <th>Ano</th>
-        <th>KM</th>
-        <th>Valor</th>
-        <th>% FIPE</th>
-    </tr>
-</thead>
-                            <tbody>
-                                <!-- Dados serão carregados via JavaScript -->
-                            </tbody>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Loja</th>
+                                    <th>Vendedor</th>
+                                    <th>Cliente</th>
+                                    <th>Placa</th>
+                                    <th>Marca</th>
+                                    <th>Modelo</th>
+                                    <th>Ano</th>
+                                    <th>KM</th>
+                                    <th>Valor</th>
+                                    <th>% FIPE</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
                         </table>
                     </div>
                     <div class="row mt-3">
@@ -746,9 +616,7 @@
                         </div>
                         <div class="col-md-6">
                             <nav aria-label="Paginação da tabela">
-                                <ul class="pagination justify-content-end" id="tablePagination">
-                                    <!-- Paginação será gerada via JavaScript -->
-                                </ul>
+                                <ul class="pagination justify-content-end" id="tablePagination"></ul>
                             </nav>
                         </div>
                     </div>
@@ -756,7 +624,7 @@
             </div>
         </div>
 
-        <!-- Footer -->
+        <!-- Rodapé -->
         <div class="row">
             <div class="col-12">
                 <div class="text-center py-3 text-muted">
@@ -766,1449 +634,1161 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/locale/pt-br.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
-    <script>
-        // Configuração global do Chart.js
-        Chart.defaults.font.family = "'Segoe UI', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif";
-        Chart.defaults.font.size = 12;
-        Chart.defaults.color = '#666';
-        
-        // Variáveis globais
-        let dadosCompletos = [];
-        let dadosFiltrados = [];
-        let filtros = {
-            meses: [],
-            lojas: [],
-            vendedores: [],
-            marcas: [],
-            modelos: []
-        };
-        let quadros = {
-            total_avaliacoes: 0,
-            ticket_medio: 0,
-            km_media: 0,
-            media_anos: 0,
-            media_percentual_fipe: 0,
-            // Quantidade total de veículos captados (com Data de compra preenchida)
-            captacao_quantidade: 0,
-            // Percentual de captações em relação ao número de avaliações
-            captacao_percentual: 0
-        };
-        let graficos = {
-            modelos_mais_vendidos: [],
-            modelos_proximos_fipe: [],
-            ticket_por_marca: [],
-            ticket_por_vendedor: [],
-            avaliacoes_por_marca: [],
-            avaliacoes_por_vendedor: [],
-            // Dados de captação por vendedor (será preenchido com os top 20 vendedores)
-            captacao_por_vendedor: []
-        };
-        let paginaAtual = 1;
-        const itensPorPagina = 10;
-        let buscaPlacaAtiva = '';
-        
-        // Formatadores
-        const formatadorMoeda = new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-            minimumFractionDigits: 2
-        });
-        
-        const formatadorNumero = new Intl.NumberFormat('pt-BR', {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-        });
-        
-        const formatadorDecimal = new Intl.NumberFormat('pt-BR', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        });
-        
-        
-        const formatadorAno = new Intl.NumberFormat('pt-BR', {
-            minimumFractionDigits: 1,
-            maximumFractionDigits: 1,
-            useGrouping: false
-        });
-// Cores para gráficos
-        const coresPrimarias = [
-            'rgba(52, 152, 219, 0.8)',
-            'rgba(46, 204, 113, 0.8)',
-            'rgba(155, 89, 182, 0.8)',
-            'rgba(52, 73, 94, 0.8)',
-            'rgba(243, 156, 18, 0.8)',
-            'rgba(231, 76, 60, 0.8)',
-            'rgba(26, 188, 156, 0.8)',
-            'rgba(241, 196, 15, 0.8)',
-            'rgba(230, 126, 34, 0.8)',
-            'rgba(149, 165, 166, 0.8)'
-        ];
-        
-        const coresBordas = [
-            'rgba(52, 152, 219, 1)',
-            'rgba(46, 204, 113, 1)',
-            'rgba(155, 89, 182, 1)',
-            'rgba(52, 73, 94, 1)',
-            'rgba(243, 156, 18, 1)',
-            'rgba(231, 76, 60, 1)',
-            'rgba(26, 188, 156, 1)',
-            'rgba(241, 196, 15, 1)',
-            'rgba(230, 126, 34, 1)',
-            'rgba(149, 165, 166, 1)'
-        ];
-        
-        // Instâncias de gráficos
-        let chartTicketMarca;
-        let chartTicketVendedor;
-        let chartAvaliacoesMarca;
-        let chartAvaliacoesVendedor;
-        let chartModelosVendidos;
-        let chartModelosFipe;
-        // Gráfico de captação por vendedor (top 20)
-        let chartCaptacaoVendedores;
-        
-        // Função para processar arquivo Excel
-        function processarArquivoExcel(arquivo) {
-            const reader = new FileReader();
-            
-            reader.onload = function(e) {
-                try {
-                    // Mostrar overlay de carregamento
-                    document.getElementById('loadingOverlay').style.display = 'flex';
-                    
-                    // Processar arquivo Excel
-                    const data = new Uint8Array(e.target.result);
-                    const workbook = XLSX.read(data, { type: 'array' });
-                    
-                    // Obter primeira planilha
-                    const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-                    
-                    // Converter para JSON
-                    const jsonData = XLSX.utils.sheet_to_json(firstSheet, { raw: true });
-                    
-                    // Processar dados
-                    processarDados(jsonData);
-                    
-                    // Esconder overlay de carregamento
-                    document.getElementById('loadingOverlay').style.display = 'none';
-                    
-                    // Mostrar mensagem de sucesso
-                    alert('Base de dados carregada com sucesso!');
-                } catch (error) {
-                    console.error('Erro ao processar arquivo:', error);
-                    alert('Erro ao processar o arquivo. Verifique se é um arquivo Excel válido.');
-                    document.getElementById('loadingOverlay').style.display = 'none';
-                }
-            };
-            
-            reader.onerror = function() {
-                alert('Erro ao ler o arquivo.');
-                document.getElementById('loadingOverlay').style.display = 'none';
-            };
-            
-            reader.readAsArrayBuffer(arquivo);
-        }
-        
-        // Função para processar dados
-        function processarDados(dados) {
-            // Verificar se há dados
-            if (!dados || dados.length === 0) {
-                alert('Arquivo não contém dados válidos.');
-                return;
-            }
-            
-            // Mapear colunas
-            const colunas = Object.keys(dados[0]);
-            
-            // Verificar colunas necessárias
-            const colunasNecessarias = [
-                'Data de Criação',
-                'Lojas',
-                'Vendedor',
-                'Marca',
-                'Modelo',
-                'Valor avaliado',
-                'KM',
-                'Ano Modelo',
-                'FIPE',
-                'Placa da Avaliação',
-                'Celular',
-                'Email'
-            ];
-            
-            // Verificar se todas as colunas necessárias estão presentes
-            const colunasPresentes = colunasNecessarias.filter(col => colunas.includes(col));
-            
-            if (colunasPresentes.length < colunasNecessarias.length) {
-                const colunasFaltantes = colunasNecessarias.filter(col => !colunas.includes(col));
-                alert(`Arquivo não contém todas as colunas necessárias. Faltando: ${colunasFaltantes.join(', ')}`);
-                return;
-            }
-            
-            // Processar dados
-            dadosCompletos = dados.map(item => {
-                // Converter data
-                let dataCriacao = null;
-                try {
-                    if (item['Data de Criação']) {
-                        // Tentar diferentes formatos de data
-                        if (typeof item['Data de Criação'] === 'string') {
-                            dataCriacao = moment(item['Data de Criação'], ['DD/MM/YYYY HH:mm:ss', 'YYYY-MM-DD HH:mm:ss', 'MM/DD/YYYY HH:mm:ss']);
-                        } else if (typeof item['Data de Criação'] === 'number') {
-                            // Converter de número Excel para data JavaScript
-                            dataCriacao = moment(new Date((item['Data de Criação'] - 25569) * 86400 * 1000));
-                        }
-                    }
-                } catch (e) {
-                    console.error('Erro ao converter data:', e);
-                }
-                
-                // Extrair mês e ano
-                const mesAno = dataCriacao && dataCriacao.isValid() ? dataCriacao.format('MMMM/YYYY') : 'Desconhecido';
-                
-                // Converter valores numéricos
-                const valorAvaliado = parseFloat(item['Valor avaliado']) || 0;
-                const km = parseFloat(item['KM']) || 0;
-                const ano = parseFloat(item['Ano Modelo']) || 0;
-                const valorFipe = parseFloat(item['FIPE']) || 0;
-                
-                // Calcular percentual FIPE
-                const percentualFipe = (valorFipe > 0 && valorAvaliado > 0) ? (valorAvaliado / valorFipe) * 100 : 0;
-                
-                return {
-                    ...item,
-                    Modelo: String(item["Modelo"]).trim(),
-                    Data_Criacao: dataCriacao && dataCriacao.isValid() ? dataCriacao.format('YYYY-MM-DD HH:mm:ss') : null,
-                    Mes_Ano: mesAno,
-                    Valor_Avaliacao: valorAvaliado,
-                    KM: km,
-                    Ano: ano,
-                    Valor_Fipe: valorFipe,
-                    Percentual_FIPE: percentualFipe
-                };
-            });
-            
-            // Filtrar dados inválidos
-            dadosCompletos = dadosCompletos.filter(item => item.Data_Criacao !== null);
-            
-            // Inicializar dados filtrados
-            dadosFiltrados = [...dadosCompletos];
-            
-            // Extrair opções para filtros
-            extrairOpcoesFiltros();
-            
-            // Calcular estatísticas
-            calcularEstatisticas();
-            
-            // Calcular dados para gráficos
-            calcularDadosGraficos();
-            
-            // Inicializar interface
-            inicializarInterface();
-        }
-        
-        // Função para extrair opções para filtros
-        function extrairOpcoesFiltros() {
-            // Extrair meses únicos
-            const mesesUnicos = [...new Set(dadosCompletos.filter(item => String(item.Mes_Ano).endsWith("/2025")).map(item => item.Mes_Ano))];
-            filtros.meses = mesesUnicos.sort((a, b) => moment(a, 'MMMM/YYYY', 'pt-br').diff(moment(b, 'MMMM/YYYY', 'pt-br')));
-            
-            // Extrair lojas únicas
-            const lojasUnicas = [...new Set(dadosCompletos.map(item => item.Lojas))].filter(Boolean);
-            filtros.lojas = lojasUnicas.sort();
-            
-            // Extrair vendedores únicos
-            const vendedoresUnicos = [...new Set(dadosCompletos.map(item => item.Vendedor))].filter(Boolean);
-            filtros.vendedores = vendedoresUnicos.sort();
-            
-            // Extrair marcas únicas
-            const marcasUnicas = [...new Set(dadosCompletos.map(item => item.Marca))].filter(Boolean);
-            filtros.marcas = marcasUnicas.sort();
-            
-            // Extrair modelos únicos
-            const modelosUnicos = [...new Set(dadosCompletos.map(item => String(item.Modelo).trim()))].filter(Boolean);
-            filtros.modelos = modelosUnicos.sort();
-            
-            // Preencher filtros na interface
-            preencherFiltros();
-        }
-        
-        // Função para calcular estatísticas
-        function calcularEstatisticas() {
-            // Total de avaliações
-            quadros.total_avaliacoes = dadosFiltrados.length;
-            
-            // Ticket médio (desconsiderando valores zero)
-            const dadosSemZeros = dadosFiltrados.filter(item => item.Valor_Avaliacao > 0);
-            quadros.ticket_medio = dadosSemZeros.length > 0 
-                ? dadosSemZeros.reduce((sum, item) => sum + item.Valor_Avaliacao, 0) / dadosSemZeros.length 
-                : 0;
-            
-            // KM média
-            const dadosComKM = dadosFiltrados.filter(item => item.KM > 0);
-            quadros.km_media = dadosComKM.length > 0 
-                ? dadosComKM.reduce((sum, item) => sum + item.KM, 0) / dadosComKM.length 
-                : 0;
-            
-            // Média dos anos
-            const dadosComAno = dadosFiltrados.filter(item => item.Ano > 0);
-            quadros.media_anos = dadosComAno.length > 0 
-                ? dadosComAno.reduce((sum, item) => sum + item.Ano, 0) / dadosComAno.length 
-                : 0;
-            
-            // Média do percentual da FIPE
-            const dadosComFIPE = dadosFiltrados.filter(item => item.Percentual_FIPE > 0);
-            quadros.media_percentual_fipe = dadosComFIPE.length > 0 
-                ? dadosComFIPE.reduce((sum, item) => sum + item.Percentual_FIPE, 0) / dadosComFIPE.length 
-                : 0;
-
-            // --- KPI de Captação ---
-            // Contabiliza quantos registros possuem a coluna "Data de compra" preenchida
-            const dadosComDataCompra = dadosFiltrados.filter(item => {
-                const campo = item['Data de compra'];
-                return campo !== undefined && campo !== null && String(campo).trim() !== '';
-            });
-            quadros.captacao_quantidade = dadosComDataCompra.length;
-            // Calcula o percentual de captação em relação ao total de avaliações
-            quadros.captacao_percentual = quadros.total_avaliacoes > 0 
-                ? (quadros.captacao_quantidade / quadros.total_avaliacoes) * 100 
-                : 0;
-            
-            // Atualizar quadros na interface
-            atualizarQuadros();
-        }
-        
-        // Função para calcular dados para gráficos
-        function calcularDadosGraficos() {
-            // Dados sem valores zero para ticket médio
-            const dadosSemZeros = dadosFiltrados.filter(item => item.Valor_Avaliacao > 0);
-            
-            // Ticket médio por marca
-            const ticketPorMarca = {};
-            const contagemPorMarca = {};
-            
-            dadosSemZeros.forEach(item => {
-                const marca = item.Marca || 'Não informado';
-                const valor = item.Valor_Avaliacao;
-                
-                if (!ticketPorMarca[marca]) {
-                    ticketPorMarca[marca] = 0;
-                    contagemPorMarca[marca] = 0;
-                }
-                
-                ticketPorMarca[marca] += valor;
-                contagemPorMarca[marca]++;
-            });
-            
-            graficos.ticket_por_marca = Object.keys(ticketPorMarca).map(marca => ({
-                Marca: marca,
-                'Valor Avaliação': ticketPorMarca[marca] / contagemPorMarca[marca],
-                'Quantidade': contagemPorMarca[marca]
-            }));
-            graficos.ticket_por_marca.sort((a, b) => b["Valor Avaliação"] - a["Valor Avaliação"]);
-            graficos.ticket_por_marca = graficos.ticket_por_marca.slice(0, 20);
-            
-            // Ticket médio por vendedor
-            const ticketPorVendedor = {};
-            const contagemPorVendedor = {};
-            
-            dadosSemZeros.forEach(item => {
-                const vendedor = item.Vendedor || 'Não informado';
-                const valor = item.Valor_Avaliacao;
-                
-                if (!ticketPorVendedor[vendedor]) {
-                    ticketPorVendedor[vendedor] = 0;
-                    contagemPorVendedor[vendedor] = 0;
-                }
-                
-                ticketPorVendedor[vendedor] += valor;
-                contagemPorVendedor[vendedor]++;
-            });
-            
-            graficos.ticket_por_vendedor = Object.keys(ticketPorVendedor).map(vendedor => ({
-                Vendedor: vendedor,
-                'Valor Avaliação': ticketPorVendedor[vendedor] / contagemPorVendedor[vendedor]
-            }));
-            graficos.ticket_por_vendedor.sort((a, b) => b["Valor Avaliação"] - a["Valor Avaliação"]);
-            graficos.ticket_por_vendedor = graficos.ticket_por_vendedor.slice(0, 20);
-            
-            // Contagem de avaliações por marca
-            const avaliacoesPorMarca = {};
-            
-            dadosFiltrados.forEach(item => {
-                const marca = item.Marca || 'Não informado';
-                
-                if (!avaliacoesPorMarca[marca]) {
-                    avaliacoesPorMarca[marca] = 0;
-                }
-                
-                avaliacoesPorMarca[marca]++;
-            });
-            
-            graficos.avaliacoes_por_marca = Object.keys(avaliacoesPorMarca).map(marca => ({
-                Marca: marca,
-                Quantidade: avaliacoesPorMarca[marca]
-            }));
-            
-            graficos.avaliacoes_por_marca.sort((a, b) => b.Quantidade - a.Quantidade);
-            graficos.avaliacoes_por_marca = graficos.avaliacoes_por_marca.slice(0, 10);
-            
-            // Contagem de avaliações por vendedor
-            const avaliacoesPorVendedor = {};
-            
-            dadosFiltrados.forEach(item => {
-                const vendedor = item.Vendedor || 'Não informado';
-                
-                if (!avaliacoesPorVendedor[vendedor]) {
-                    avaliacoesPorVendedor[vendedor] = 0;
-                }
-                
-                avaliacoesPorVendedor[vendedor]++;
-            });
-            
-            graficos.avaliacoes_por_vendedor = Object.keys(avaliacoesPorVendedor).map(vendedor => ({
-                Vendedor: vendedor,
-                Quantidade: avaliacoesPorVendedor[vendedor]
-            }));
-            
-            graficos.avaliacoes_por_vendedor.sort((a, b) => b.Quantidade - a.Quantidade);
-            graficos.avaliacoes_por_vendedor = graficos.avaliacoes_por_vendedor.slice(0, 10);
-// Contagem de avaliações por modelo
-const avaliacoesPorModelo = {};
-dadosFiltrados.forEach(item => {
-    const modelo = item.Modelo || 'Não informado';
-    avaliacoesPorModelo[modelo] = (avaliacoesPorModelo[modelo] || 0) + 1;
-});
-graficos.modelos_mais_vendidos = Object.keys(avaliacoesPorModelo).map(modelo => ({
-    Modelo: modelo,
-    Quantidade: avaliacoesPorModelo[modelo]
-}));
-graficos.modelos_mais_vendidos.sort((a, b) => b.Quantidade - a.Quantidade);
-if (graficos.modelos_mais_vendidos.length > 10) {
-                graficos.modelos_mais_vendidos = graficos.modelos_mais_vendidos.slice(0, 10);
-            }
-
-// Modelos com média Percentual_FIPE mais próxima de 100%
-const somaPercPorModelo = {};
-const contagemPercModelo = {};
-dadosFiltrados.forEach(item => {
-    const modelo = item.Modelo || 'Não informado';
-    const percRaw = item.Percentual_FIPE;
-const perc = parseFloat(String(percRaw).replace(',', '.'));
-if (!isNaN(perc)) {
-    somaPercPorModelo[modelo] = (somaPercPorModelo[modelo] || 0) + perc;
-    contagemPercModelo[modelo] = (contagemPercModelo[modelo] || 0) + 1;
-}
-});
-graficos.modelos_proximos_fipe = Object.keys(somaPercPorModelo).map(modelo => ({
-    Modelo: modelo,
-    Percentual: somaPercPorModelo[modelo] / contagemPercModelo[modelo]
-}));
-graficos.modelos_proximos_fipe.sort((a, b) => Math.abs(100 - a.Percentual) - Math.abs(100 - b.Percentual));
-if (graficos.modelos_proximos_fipe.length > 10) {
-                graficos.modelos_proximos_fipe = graficos.modelos_proximos_fipe.slice(0, 10);
-            }
-
-            // Captação por vendedor (considera apenas registros com "Data de compra" preenchida)
-            const captacaoPorVendedor = {};
-            dadosFiltrados.forEach(item => {
-                const campo = item['Data de compra'];
-                if (campo !== undefined && campo !== null && String(campo).trim() !== '') {
-                    const vendedor = item.Vendedor || 'Não informado';
-                    captacaoPorVendedor[vendedor] = (captacaoPorVendedor[vendedor] || 0) + 1;
-                }
-            });
-            graficos.captacao_por_vendedor = Object.keys(captacaoPorVendedor).map(vendedor => ({
-                Vendedor: vendedor,
-                Quantidade: captacaoPorVendedor[vendedor]
-            }));
-            // Ordenar de forma decrescente e limitar aos top 20
-            graficos.captacao_por_vendedor.sort((a, b) => b.Quantidade - a.Quantidade);
-            if (graficos.captacao_por_vendedor.length > 20) {
-                graficos.captacao_por_vendedor = graficos.captacao_por_vendedor.slice(0, 20);
-            }
-        }
-        
-        // Função para inicializar interface
-        function inicializarInterface() {
-            // Inicializar gráficos
-            inicializarGraficos();
-            
-            // Atualizar tabela
-            atualizarTabela();
-            
-            // Gerar storytelling
-            gerarStorytelling();
-            
-            // Atualizar data de atualização
-            document.getElementById('dataAtualizacao').textContent = moment().format('DD/MM/YYYY HH:mm');
-        }
-        
-        // Função para preencher filtros
-        function preencherFiltros() {
-            const filtroMes = document.getElementById('filtroMes');
-            const filtroLoja = document.getElementById('filtroLoja');
-            const filtroVendedor = document.getElementById('filtroVendedor');
-            const filtroMarca = document.getElementById('filtroMarca');
-            const filtroModelo = document.getElementById('filtroModelo');
-            
-            // Limpar opções existentes
-            filtroMes.innerHTML = '';
-            filtroLoja.innerHTML = '';
-            filtroVendedor.innerHTML = '';
-            filtroMarca.innerHTML = '';
-            filtroModelo.innerHTML = '';
-            
-            // Preencher opções
-            filtros.meses.forEach(mes => {
-                const option = document.createElement('option');
-                option.value = mes;
-                option.textContent = mes;
-                filtroMes.appendChild(option);
-            });
-            
-            filtros.lojas.forEach(loja => {
-                const option = document.createElement('option');
-                option.value = loja;
-                option.textContent = loja;
-                filtroLoja.appendChild(option);
-            });
-            
-            filtros.vendedores.forEach(vendedor => {
-                const option = document.createElement('option');
-                option.value = vendedor;
-                option.textContent = vendedor;
-                filtroVendedor.appendChild(option);
-            });
-            
-            filtros.marcas.forEach(marca => {
-                const option = document.createElement('option');
-                option.value = marca;
-                option.textContent = marca;
-                filtroMarca.appendChild(option);
-            });
-            
-            filtros.modelos.forEach(modelo => {
-                const option = document.createElement('option');
-                option.value = modelo;
-                option.textContent = modelo;
-                filtroModelo.appendChild(option);
-            });
-            
-            // Inicializar Select2
-            $('.select2-multiple').select2({
-                theme: 'bootstrap-5',
-                width: '100%',
-                placeholder: 'Selecione...',
-                allowClear: true
-            });
-        }
-        
-        // Função para atualizar quadros
-        function atualizarQuadros() {
-            document.getElementById('totalAvaliacoes').textContent = formatadorNumero.format(quadros.total_avaliacoes);
-            document.getElementById('ticketMedio').textContent = formatadorMoeda.format(quadros.ticket_medio);
-            document.getElementById('kmMedia').textContent = formatadorNumero.format(quadros.km_media);
-            document.getElementById('mediaAnos').textContent = formatadorAno.format(quadros.media_anos);
-            document.getElementById('percentualFipe').textContent = formatadorDecimal.format(quadros.media_percentual_fipe) + '%';
-
-            // Atualizar KPI de captação (quantidade e percentual)
-            const elemCaptacaoQtd = document.getElementById('captacaoQuantidade');
-            const elemCaptacaoPerc = document.getElementById('captacaoPercentual');
-            if (elemCaptacaoQtd && elemCaptacaoPerc) {
-                elemCaptacaoQtd.textContent = formatadorNumero.format(quadros.captacao_quantidade);
-                elemCaptacaoPerc.textContent = formatadorDecimal.format(quadros.captacao_percentual);
-            }
-        }
-        
-        // Função para inicializar gráficos
-        function inicializarGraficos() {
-            // Destruir gráficos existentes se houver
-            if (chartTicketMarca) chartTicketMarca.destroy();
-            if (chartTicketVendedor) chartTicketVendedor.destroy();
-            if (chartAvaliacoesMarca) chartAvaliacoesMarca.destroy();
-            if (chartAvaliacoesVendedor) chartAvaliacoesVendedor.destroy();
-            
-            // Destruir novos gráficos se existirem
-            if (chartModelosVendidos) chartModelosVendidos.destroy();
-            if (chartModelosFipe) chartModelosFipe.destroy();
-            if (chartCaptacaoVendedores) chartCaptacaoVendedores.destroy();
-            
-            // Gráfico de Ticket Médio por Marca
-            const ctxTicketMarca = document.getElementById('chartTicketMarca').getContext('2d');
-            chartTicketMarca = new Chart(ctxTicketMarca, {
-                type: 'bar',
-                data: {
-                    labels: graficos.ticket_por_marca.map(item => item.Marca),
-                    datasets: [{
-                        label: 'Ticket Médio (R$)',
-                        data: graficos.ticket_por_marca.map(item => item['Valor Avaliação']),
-                        backgroundColor: coresPrimarias,
-                        borderColor: coresBordas,
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    indexAxis: 'y',
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const marca = graficos.ticket_por_marca[context.dataIndex];
-                                    return formatadorMoeda.format(context.raw) + ' (' + formatadorNumero.format(marca.Quantidade) + ' avaliações)';
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            ticks: {
-                                callback: function(value) {
-                                    return formatadorMoeda.format(value);
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-            
-            // Gráfico de Ticket Médio por Vendedor
-            const ctxTicketVendedor = document.getElementById('chartTicketVendedor').getContext('2d');
-            chartTicketVendedor = new Chart(ctxTicketVendedor, {
-                type: 'bar',
-                data: {
-                    labels: graficos.ticket_por_vendedor.map(item => item.Vendedor),
-                    datasets: [{
-                        label: 'Ticket Médio (R$)',
-                        data: graficos.ticket_por_vendedor.map(item => item['Valor Avaliação']),
-                        backgroundColor: coresPrimarias,
-                        borderColor: coresBordas,
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    indexAxis: 'y',
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return formatadorMoeda.format(context.raw);
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            ticks: {
-                                callback: function(value) {
-                                    return formatadorMoeda.format(value);
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-            
-            // Gráfico de Avaliações por Marca
-            const ctxAvaliacoesMarca = document.getElementById('chartAvaliacoesMarca').getContext('2d');
-            chartAvaliacoesMarca = new Chart(ctxAvaliacoesMarca, {
-                type: 'pie',
-                data: {
-                    labels: graficos.avaliacoes_por_marca.map(item => item.Marca),
-                    datasets: [{
-                        label: 'Quantidade de Avaliações',
-                        data: graficos.avaliacoes_por_marca.map(item => item.Quantidade),
-                        backgroundColor: coresPrimarias,
-                        borderColor: coresBordas,
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-
-                        legend: { display: true },
-
-                        tooltip: { callbacks: { label: ctx => {
-
-                            const total = ctx.dataset.data.reduce((acc, val) => acc + val, 0);
-
-                            const pct = ((ctx.raw / total) * 100).toFixed(1).replace('.', ',') + '%';
-
-                            return formatadorNumero.format(ctx.raw) + ' (' + pct + ')';
-
-                        } } }
-
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                precision: 0
-                            }
-                        }
-                    }
-                }
-            });
-            
-            // Gráfico de Avaliações por Vendedor
-            const ctxAvaliacoesVendedor = document.getElementById('chartAvaliacoesVendedor').getContext('2d');
-            chartAvaliacoesVendedor = new Chart(ctxAvaliacoesVendedor, {
-                type: 'bar',
-                data: {
-                    labels: graficos.avaliacoes_por_vendedor.map(item => item.Vendedor),
-                    datasets: [{
-                        label: 'Quantidade de Avaliações',
-                        data: graficos.avaliacoes_por_vendedor.map(item => item.Quantidade),
-                        backgroundColor: coresPrimarias,
-                        borderColor: coresBordas,
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-
-                        legend: { display: true },
-
-                        tooltip: { callbacks: { label: ctx => {
-
-                            const total = ctx.dataset.data.reduce((acc, val) => acc + val, 0);
-
-                            const pct = ((ctx.raw / total) * 100).toFixed(1).replace('.', ',') + '%';
-
-                            return formatadorNumero.format(ctx.raw) + ' (' + pct + ')';
-
-                        } } }
-
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                precision: 0
-                            }
-                        }
-                    }
-                }
-            });
-
-// Gráfico de Modelos Mais Avaliados
-const ctxModelosVendidos = document.getElementById('chartModelosVendidos').getContext('2d');
-chartModelosVendidos = new Chart(ctxModelosVendidos, {
-    type: 'bar',
-    data: {
-        labels: graficos.modelos_mais_vendidos.map(item => item.Modelo),
-        datasets: [{
-            label: 'Avaliações',
-            data: graficos.modelos_mais_vendidos.map(item => item.Quantidade),
-            backgroundColor: coresPrimarias,
-            borderColor: coresBordas,
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { label: ctx => formatadorNumero.format(ctx.raw) } }
-        },
-        scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
-    }
-});
-
-// Gráfico de Modelos Mais Bem Pagos (Percentual FIPE)
-const ctxModelosFipe = document.getElementById('chartModelosFipe').getContext('2d');
-chartModelosFipe = new Chart(ctxModelosFipe, {
-    type: 'bar',
-    data: {
-        labels: graficos.modelos_proximos_fipe.map(item => item.Modelo),
-        datasets: [{
-            label: 'Percentual Médio FIPE (%)',
-            data: graficos.modelos_proximos_fipe.map(item => item.Percentual),
-            backgroundColor: coresPrimarias,
-            borderColor: coresBordas,
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { label: ctx => formatadorDecimal.format(ctx.raw) + '%' } }
-        },
-        scales: {
-            y: { beginAtZero: true, ticks: { callback: value => formatadorDecimal.format(value) + '%' } }
-        }
-    }
-});
-
-            // Gráfico de Captação por Vendedor
-            const ctxCaptacaoVendedores = document.getElementById('chartCaptacaoVendedores').getContext('2d');
-            const captacaoColors = graficos.captacao_por_vendedor.map((_, index) => coresPrimarias[index % coresPrimarias.length]);
-            const captacaoBorderColors = graficos.captacao_por_vendedor.map((_, index) => coresBordas[index % coresBordas.length]);
-            chartCaptacaoVendedores = new Chart(ctxCaptacaoVendedores, {
-                type: 'bar',
-                data: {
-                    labels: graficos.captacao_por_vendedor.map(item => item.Vendedor),
-                    datasets: [{
-                        label: 'Captações',
-                        data: graficos.captacao_por_vendedor.map(item => item.Quantidade),
-                        backgroundColor: captacaoColors,
-                        borderColor: captacaoBorderColors,
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return context.raw + ' captações';
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        x: { beginAtZero: true },
-                        y: { beginAtZero: true }
-                    }
-                }
-            });
-        }
-        
-        
-
-        // Função para atualizar tabela
-        function atualizarTabela() {
-            const tbody = document.querySelector('#tabelaAvaliacoes tbody');
-            tbody.innerHTML = '';
-            
-            // Calcular índices para paginação
-            const inicio = (paginaAtual - 1) * itensPorPagina;
-            const fim = Math.min(inicio + itensPorPagina, dadosFiltrados.length);
-            
-            // Preencher tabela com dados paginados
-            for (let i = inicio; i < fim; i++) {
-                const avaliacao = dadosFiltrados[i];
-                const tr = document.createElement('tr');
-                
-                tr.innerHTML = `
-    <td>${avaliacao.Data_Criacao ? moment(avaliacao.Data_Criacao).format('DD/MM/YYYY') : '-'}</td>
-    <td>${avaliacao.Lojas || '-'}</td>
-    <td>${avaliacao.Vendedor || '-'}</td>
-    <td>${avaliacao.Cliente || '-'}</td>
-    <td>${avaliacao['Placa da Avaliação'] || '-'}</td>
-    <td>${avaliacao.Marca || '-'}</td>
-    <td>${avaliacao.Modelo || '-'}</td>
-    <td>${avaliacao.Ano || '-'}</td>
-    <td>${formatadorNumero.format(avaliacao.KM || 0)}</td>
-    <td>${formatadorMoeda.format(avaliacao.Valor_Avaliacao || 0)}</td>
-    <td>${formatadorDecimal.format(avaliacao.Percentual_FIPE || 0)}%</td>
-`;
-                
-                tbody.appendChild(tr);
-            }
-            
-            // Atualizar informações da tabela
-            document.getElementById('tableInfo').textContent = `Mostrando ${inicio + 1} a ${fim} de ${dadosFiltrados.length} registros`;
-            
-            // Atualizar paginação
-            atualizarPaginacao();
-        }
-        
-        // Função para atualizar paginação
-        function atualizarPaginacao() {
-            const paginationElement = document.getElementById('tablePagination');
-            paginationElement.innerHTML = '';
-            
-            const totalPaginas = Math.ceil(dadosFiltrados.length / itensPorPagina);
-            
-            // Botão Anterior
-            const liAnterior = document.createElement('li');
-            liAnterior.className = `page-item ${paginaAtual === 1 ? 'disabled' : ''}`;
-            liAnterior.innerHTML = `<a class="page-link" href="#" aria-label="Anterior"><span aria-hidden="true">&laquo;</span></a>`;
-            liAnterior.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (paginaAtual > 1) {
-                    paginaAtual--;
-                    atualizarTabela();
-                }
-            });
-            paginationElement.appendChild(liAnterior);
-            
-            // Páginas
-            const maxPaginas = 5;
-            let startPage = Math.max(1, paginaAtual - Math.floor(maxPaginas / 2));
-            let endPage = Math.min(totalPaginas, startPage + maxPaginas - 1);
-            
-            if (endPage - startPage + 1 < maxPaginas) {
-                startPage = Math.max(1, endPage - maxPaginas + 1);
-            }
-            
-            for (let i = startPage; i <= endPage; i++) {
-                const li = document.createElement('li');
-                li.className = `page-item ${i === paginaAtual ? 'active' : ''}`;
-                li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-                li.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    paginaAtual = i;
-                    atualizarTabela();
-                });
-                paginationElement.appendChild(li);
-            }
-            
-            // Botão Próximo
-            const liProximo = document.createElement('li');
-            liProximo.className = `page-item ${paginaAtual === totalPaginas ? 'disabled' : ''}`;
-            liProximo.innerHTML = `<a class="page-link" href="#" aria-label="Próximo"><span aria-hidden="true">&raquo;</span></a>`;
-            liProximo.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (paginaAtual < totalPaginas) {
-                    paginaAtual++;
-                    atualizarTabela();
-                }
-            });
-            paginationElement.appendChild(liProximo);
-        }
-        
-        // Função para aplicar filtros
-        function aplicarFiltros() {
-            const mesesSelecionados = Array.from(document.getElementById('filtroMes').selectedOptions).map(option => option.value);
-            const lojasSelecionadas = Array.from(document.getElementById('filtroLoja').selectedOptions).map(option => option.value);
-            const vendedoresSelecionados = Array.from(document.getElementById('filtroVendedor').selectedOptions).map(option => option.value);
-            const marcasSelecionadas = Array.from(document.getElementById('filtroMarca').selectedOptions).map(option => option.value);
-            const modelosSelecionados = Array.from(document.getElementById('filtroModelo').selectedOptions).map(option => option.value);
-            
-            // Obter busca por placa
-            const buscaPlaca = document.getElementById('buscaPlaca').value.trim().toLowerCase();
-            buscaPlacaAtiva = buscaPlaca;
-            
-            // Mostrar overlay de carregamento
-            document.getElementById('loadingOverlay').style.display = 'flex';
-            
-            // Aplicar filtros aos dados
-            dadosFiltrados = dadosCompletos.filter(item => {
-                const mesMatch = mesesSelecionados.length === 0 || mesesSelecionados.includes(item.Mes_Ano);
-                const lojaMatch = lojasSelecionadas.length === 0 || lojasSelecionadas.includes(item.Lojas);
-                const vendedorMatch = vendedoresSelecionados.length === 0 || vendedoresSelecionados.includes(item.Vendedor);
-                const marcaMatch = marcasSelecionadas.length === 0 || marcasSelecionadas.includes(item.Marca);
-                const modeloMatch = modelosSelecionados.length === 0 || modelosSelecionados.includes(item.Modelo);
-                
-                // Filtro por placa
-                const placaMatch = buscaPlaca === '' || (item['Placa da Avaliação'] && 
-                    item['Placa da Avaliação'].toString().toLowerCase().includes(buscaPlaca));
-                
-                return mesMatch && lojaMatch && vendedorMatch && marcaMatch && modeloMatch && placaMatch;
-            });
-            
-            // Calcular estatísticas
-            calcularEstatisticas();
-            
-            // Calcular dados para gráficos
-            calcularDadosGraficos();
-            
-            // Atualizar gráficos
-            inicializarGraficos();
-            
-            // Resetar paginação
-            paginaAtual = 1;
-            
-            // Atualizar tabela
-            atualizarTabela();
-            
-            // Atualizar storytelling
-            gerarStorytelling();
-            
-            // Mostrar/esconder botão de limpar busca
-            const clearBtn = document.getElementById('clearSearchBtn');
-            if (buscaPlaca) {
-                clearBtn.style.display = 'block';
-            } else {
-                clearBtn.style.display = 'none';
-            }
-            
-            // Esconder overlay de carregamento
-            document.getElementById('loadingOverlay').style.display = 'none';
-        }
-        
-        // Função para limpar filtros
-        function limparFiltros() {
-            // Limpar seleções do Select2
-            $('.select2-multiple').val(null).trigger('change');
-            
-            // Limpar busca por placa
-            document.getElementById('buscaPlaca').value = '';
-            document.getElementById('clearSearchBtn').style.display = 'none';
-            buscaPlacaAtiva = '';
-            
-            // Aplicar filtros (sem filtros selecionados = todos os dados)
-            aplicarFiltros();
-        }
-        
-        // Função para gerar storytelling
-        function gerarStorytelling() {
-            const storyContent = document.getElementById('storyContent');
-            
-            // Obter dados para storytelling
-            const totalAvaliacoes = dadosFiltrados.length;
-            
-            if (totalAvaliacoes === 0) {
-                storyContent.innerHTML = `
-                    <p>Não há dados disponíveis para os filtros selecionados. Por favor, ajuste os filtros para visualizar os insights.</p>
-                `;
-                return;
-            }
-            
-            // Calcular marca mais avaliada
-            const marcasPorQuantidade = {};
-            dadosFiltrados.forEach(item => {
-                const marca = item.Marca || 'Não informado';
-                marcasPorQuantidade[marca] = (marcasPorQuantidade[marca] || 0) + 1;
-            });
-            
-            const marcaMaisAvaliada = Object.keys(marcasPorQuantidade).reduce((a, b) => 
-                marcasPorQuantidade[a] > marcasPorQuantidade[b] ? a : b
-            );
-            
-            const quantidadeMarcaMaisAvaliada = marcasPorQuantidade[marcaMaisAvaliada];
-            const percentualMarcaMaisAvaliada = (quantidadeMarcaMaisAvaliada / totalAvaliacoes * 100).toFixed(1);
-
-            // Calcular modelo mais avaliado
-            const modelosPorQuantidade = {};
-            dadosFiltrados.forEach(item => {
-                const modelo = (item.Modelo || item['Modelo Veículo'] || item['Modelo do Veículo'] || item['ModeloVeiculo'] || 'Não informado').toString().trim();
-                modelosPorQuantidade[modelo] = (modelosPorQuantidade[modelo] || 0) + 1;
-            });
-            const modeloMaisAvaliado = Object.keys(modelosPorQuantidade).reduce((a, b) =>
-                modelosPorQuantidade[a] > modelosPorQuantidade[b] ? a : b
-            );
-            const quantidadeModeloMaisAvaliado = modelosPorQuantidade[modeloMaisAvaliado];
-            const percentualModeloMaisAvaliado = (quantidadeModeloMaisAvaliado / totalAvaliacoes * 100).toFixed(1);
-// Calcular vendedor com mais avaliações
-const contagemAvaliacoesPorVendedor = {};
-dadosFiltrados.forEach(item => {
-    const vend = (item.Vendedor || 'Não informado').toString().trim();
-    contagemAvaliacoesPorVendedor[vend] = (contagemAvaliacoesPorVendedor[vend] || 0) + 1;
-});
-const vendedorMaisAvaliacoes = Object.keys(contagemAvaliacoesPorVendedor).reduce((a,b)=>
-    contagemAvaliacoesPorVendedor[a] > contagemAvaliacoesPorVendedor[b] ? a : b
-);
-const quantidadeVendedorMaisAvaliacoes = contagemAvaliacoesPorVendedor[vendedorMaisAvaliacoes];
-
-
-            
-            // Calcular vendedor com maior ticket médio
-            const vendedoresSemZeros = {};
-            const contagemVendedores = {};
-            
-            dadosFiltrados.forEach(item => {
-                if (item.Valor_Avaliacao > 0) {
-                    const vendedor = item.Vendedor || 'Não informado';
-                    const valor = item.Valor_Avaliacao;
-                    
-                    vendedoresSemZeros[vendedor] = (vendedoresSemZeros[vendedor] || 0) + valor;
-                    contagemVendedores[vendedor] = (contagemVendedores[vendedor] || 0) + 1;
-                }
-            });
-            
-            const ticketMedioPorVendedor = {};
-            Object.keys(vendedoresSemZeros).forEach(vendedor => {
-                ticketMedioPorVendedor[vendedor] = vendedoresSemZeros[vendedor] / contagemVendedores[vendedor];
-            });
-            
-            const vendedorMaiorTicket = Object.keys(ticketMedioPorVendedor).reduce((a, b) => 
-                ticketMedioPorVendedor[a] > ticketMedioPorVendedor[b] ? a : b
-            );
-            
-            const maiorTicketMedio = ticketMedioPorVendedor[vendedorMaiorTicket];
-            
-            // Calcular loja com mais avaliações
-            const lojasPorQuantidade = {};
-            dadosFiltrados.forEach(item => {
-                const loja = item.Lojas || 'Não informado';
-                lojasPorQuantidade[loja] = (lojasPorQuantidade[loja] || 0) + 1;
-            });
-            
-            const lojaMaisAvaliacoes = Object.keys(lojasPorQuantidade).reduce((a, b) => 
-                lojasPorQuantidade[a] > lojasPorQuantidade[b] ? a : b
-            );
-            
-            const quantidadeLojaMaisAvaliacoes = lojasPorQuantidade[lojaMaisAvaliacoes];
-            const percentualLojaMaisAvaliacoes = (quantidadeLojaMaisAvaliacoes / totalAvaliacoes * 100).toFixed(1);
-            
-            // Adicionar informação sobre busca por placa se ativa
-            let textoBuscaPlaca = '';
-            if (buscaPlacaAtiva) {
-                textoBuscaPlaca = `<p><strong>Filtro ativo:</strong> Resultados filtrados pela placa "${buscaPlacaAtiva.toUpperCase()}".</p>`;
-            }
-            
-            // Gerar texto de storytelling
-            storyContent.innerHTML = `
-                ${textoBuscaPlaca}
-                <p>Analisando as <strong>${formatadorNumero.format(totalAvaliacoes)}</strong> avaliações de veículos, 
-                identificamos que a marca <strong>${marcaMaisAvaliada}</strong> representa 
-                <strong>${percentualMarcaMaisAvaliada}%</strong> do total, com 
-                <strong>${formatadorNumero.format(quantidadeMarcaMaisAvaliada)}</strong> avaliações.</p>
-                
-                <p>O modelo <strong>${modeloMaisAvaliado}</strong> é o mais avaliado, representando <strong>${percentualModeloMaisAvaliado}%</strong> do total com <strong>${formatadorNumero.format(quantidadeModeloMaisAvaliado)}</strong> avaliações.</p><p>
-                               
-                <p>A loja <strong>${lojaMaisAvaliacoes}</strong> lidera em volume, com 
-                <strong>${formatadorNumero.format(quantidadeLojaMaisAvaliacoes)}</strong> avaliações, 
-                representando <strong>${percentualLojaMaisAvaliacoes}%</strong> do total.</p>
-                
-                <p>O percentual médio da FIPE de <strong>${formatadorDecimal.format(quadros.media_percentual_fipe)}%</strong> 
-                indica uma avaliação consistente em relação aos valores de referência do mercado.</p>
-            `;
-        }
-        
-        // Função para exportar dados para CSV
-        function exportarCSV() {
-            if (dadosFiltrados.length === 0) {
-                alert('Não há dados para exportar.');
-                return;
-            }
-            
-            // Mostrar overlay de carregamento
-            document.getElementById('loadingOverlay').style.display = 'flex';
-            
-            try {
-                // Definir cabeçalhos
-                const cabecalhos = [
-                    'Vendedor', 'Loja', 'Placa', 'Valor', 'Marca', 'Modelo', 
-                    'Cliente', 'Telefone', 'Email', 'Data', 'KM', 'Ano', 'FIPE', 'Percentual FIPE'
-                ];
-                
-                // Preparar linhas de dados
-                const linhas = dadosFiltrados.map(item => [
-                    item.Vendedor || '',
-                    item.Lojas || '',
-                    item['Placa da Avaliação'] || '',
-                    item.Valor_Avaliacao || 0,
-                    item.Marca || '',
-                    item.Modelo || '',
-                    item.Cliente || '',
-                    item.Celular || '',
-                    item.Email || '',
-                    item.Data_Criacao || '',
-                    item.KM || 0,
-                    item.Ano || 0,
-                    item.Valor_Fipe || 0,
-                    item.Percentual_FIPE || 0
-                ]);
-                
-                // Converter para CSV
-                let csvContent = cabecalhos.join(',') + '\n';
-                
-                linhas.forEach(linha => {
-                    // Escapar campos com vírgulas ou aspas
-                    const linhaEscapada = linha.map(campo => {
-                        const campoStr = String(campo);
-                        if (campoStr.includes(',') || campoStr.includes('"') || campoStr.includes('\n')) {
-                            return `"${campoStr.replace(/"/g, '""')}"`;
-                        }
-                        return campoStr;
-                    });
-                    
-                    csvContent += linhaEscapada.join(',') + '\n';
-                });
-                
-                // Criar blob e link para download
-                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.setAttribute('href', url);
-                link.setAttribute('download', `avaliacoes_veiculos_${moment().format('YYYYMMDD_HHmmss')}.csv`);
-                link.style.visibility = 'hidden';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                // Esconder overlay de carregamento
-                document.getElementById('loadingOverlay').style.display = 'none';
-            } catch (error) {
-                console.error('Erro ao exportar CSV:', error);
-                alert('Erro ao exportar dados para CSV.');
-                document.getElementById('loadingOverlay').style.display = 'none';
-            }
-        }
-        
-        // Função para exportar dados para Excel
-        function exportarExcel() {
-            if (dadosFiltrados.length === 0) {
-                alert('Não há dados para exportar.');
-                return;
-            }
-            
-            // Mostrar overlay de carregamento
-            document.getElementById('loadingOverlay').style.display = 'flex';
-            
-            try {
-                // Preparar dados para Excel
-                const dadosExcel = dadosFiltrados.map(item => ({
-                    'Vendedor': item.Vendedor || '',
-                    'Loja': item.Lojas || '',
-                    'Placa': item['Placa da Avaliação'] || '',
-                    'Valor': item.Valor_Avaliacao || 0,
-                    'Marca': item.Marca || '',
-                    'Modelo': item.Modelo || '',
-                    'Cliente': item.Cliente || '',
-                    'Telefone': item.Celular || '',
-                    'Email': item.Email || '',
-                    'Data': item.Data_Criacao || '',
-                    'KM': item.KM || 0,
-                    'Ano': item.Ano || 0,
-                    'FIPE': item.Valor_Fipe || 0,
-                    'Percentual FIPE': item.Percentual_FIPE || 0
-                }));
-
-// Criar workbook
-                const wb = XLSX.utils.book_new();
-                const ws = XLSX.utils.json_to_sheet(dadosExcel);
-                
-                // Adicionar worksheet ao workbook
-                XLSX.utils.book_append_sheet(wb, ws, 'Avaliações');
-                
-                // Exportar workbook
-                XLSX.writeFile(wb, `avaliacoes_veiculos_${moment().format('YYYYMMDD_HHmmss')}.xlsx`);
-                
-                // Esconder overlay de carregamento
-                document.getElementById('loadingOverlay').style.display = 'none';
-            } catch (error) {
-                console.error('Erro ao exportar Excel:', error);
-                alert('Erro ao exportar dados para Excel.');
-                document.getElementById('loadingOverlay').style.display = 'none';
-            }
-        }
-        
-        // Função para exportar dados para PDF
-        function exportarPDF() {
-            if (dadosFiltrados.length === 0) {
-                alert('Não há dados para exportar.');
-                return;
-            }
-            
-            // Mostrar overlay de carregamento
-            document.getElementById('loadingOverlay').style.display = 'flex';
-            
-            try {
-                // Inicializar jsPDF
-                const { jsPDF } = window.jspdf;
-                const doc = new jsPDF('l', 'mm', 'a4');
-                
-                // Título
-                doc.setFontSize(18);
-                doc.setTextColor(52, 152, 219);
-                doc.text('Relatório de Avaliações de Veículos', 14, 22);
-                
-                // Subtítulo
-                doc.setFontSize(12);
-                doc.setTextColor(100, 100, 100);
-                doc.text(`Gerado em ${moment().format('DD/MM/YYYY HH:mm')}`, 14, 30);
-                
-                // Estatísticas
-                doc.setFontSize(14);
-                doc.setTextColor(52, 152, 219);
-                doc.text('Estatísticas Gerais', 14, 40);
-                
-                doc.setFontSize(10);
-                doc.setTextColor(0, 0, 0);
-                doc.text(`Total de Avaliações: ${formatadorNumero.format(quadros.total_avaliacoes)}`, 14, 48);
-                doc.text(`Ticket Médio: ${formatadorMoeda.format(quadros.ticket_medio)}`, 14, 54);
-                doc.text(`KM Média: ${formatadorNumero.format(quadros.km_media)}`, 14, 60);
-                doc.text(`Média dos Anos: ${formatadorDecimal.format(quadros.media_anos)}`, 14, 66);
-                doc.text(`Percentual FIPE Médio: ${formatadorDecimal.format(quadros.media_percentual_fipe)}%`, 14, 72);
-                
-                // Tabela de dados
-                const cabecalhos = [
-                    'Vendedor', 'Loja', 'Placa', 'Valor', 'Marca', 'Cliente', 'Telefone'
-                ];
-                
-                const dados = dadosFiltrados.slice(0, 100).map(item => [
-                    item.Vendedor || '-',
-                    item.Lojas || '-',
-                    item['Placa da Avaliação'] || '-',
-                    formatadorMoeda.format(item.Valor_Avaliacao || 0),
-                    item.Marca || '-',
-                    item.Cliente || '-',
-                    item.Celular || '-'
-                ]);
-                
-                // Adicionar tabela
-                doc.setFontSize(12);
-                doc.setTextColor(52, 152, 219);
-                doc.text('Listagem de Avaliações', 14, 82);
-                
-                // Usar autoTable
-                doc.autoTable({
-                    head: [cabecalhos],
-                    body: dados,
-                    startY: 85,
-                    theme: 'grid',
-                    headStyles: {
-                        fillColor: [52, 152, 219],
-                        textColor: [255, 255, 255],
-                        fontStyle: 'bold'
-                    },
-                    alternateRowStyles: {
-                        fillColor: [240, 240, 240]
-                    },
-                    margin: { top: 85 }
-                });
-                
-                // Nota de rodapé
-                const pageCount = doc.internal.getNumberOfPages();
-                for (let i = 1; i <= pageCount; i++) {
-                    doc.setPage(i);
-                    doc.setFontSize(8);
-                    doc.setTextColor(150, 150, 150);
-                    doc.text(`Página ${i} de ${pageCount} - Dashboard de Avaliações de Veículos 2025`, doc.internal.pageSize.getWidth() / 2, doc.internal.pageSize.getHeight() - 10, { align: 'center' });
-                }
-                
-                // Salvar PDF
-                doc.save(`avaliacoes_veiculos_${moment().format('YYYYMMDD_HHmmss')}.pdf`);
-                
-                // Esconder overlay de carregamento
-                document.getElementById('loadingOverlay').style.display = 'none';
-            } catch (error) {
-                console.error('Erro ao exportar PDF:', error);
-                alert('Erro ao exportar dados para PDF.');
-                document.getElementById('loadingOverlay').style.display = 'none';
-            }
-        }
-        
-        // Event Listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            // Esconder overlay de carregamento inicialmente
-            document.getElementById('loadingOverlay').style.display = 'none';
-            
-            // Botão de aplicar filtros
-            document.getElementById('btnAplicarFiltros').addEventListener('click', aplicarFiltros);
-            
-            // Botão de limpar filtros
-            document.getElementById('btnLimparFiltros').addEventListener('click', limparFiltros);
-            
-            // Input de upload de arquivo
-            document.getElementById('fileUpload').addEventListener('change', (e) => {
-                if (e.target.files.length > 0) {
-                    processarArquivoExcel(e.target.files[0]);
-                }
-            });
-            
-            // Botões de exportação
-            document.getElementById('btnExportarExcel').addEventListener('click', exportarExcel);
-            document.getElementById('btnExportarPDF').addEventListener('click', exportarPDF);
-            
-            // Campo de busca por placa
-            const buscaPlacaInput = document.getElementById('buscaPlaca');
-            const clearSearchBtn = document.getElementById('clearSearchBtn');
-            
-            // Aplicar filtro automaticamente ao digitar (com debounce)
-            let timeoutBusca;
-            buscaPlacaInput.addEventListener('input', (e) => {
-                clearTimeout(timeoutBusca);
-                timeoutBusca = setTimeout(() => {
-                    aplicarFiltros();
-                }, 500); // Aguarda 500ms após parar de digitar
-            });
-            
-            // Aplicar filtro ao pressionar Enter
-            buscaPlacaInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    clearTimeout(timeoutBusca);
-                    aplicarFiltros();
-                }
-            });
-            
-            // Botão para limpar busca
-            clearSearchBtn.addEventListener('click', () => {
-                buscaPlacaInput.value = '';
-                clearSearchBtn.style.display = 'none';
-                aplicarFiltros();
-            });
-            
-            // Configurar tooltips do Bootstrap
-            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-            tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl);
-            });
-            
-            // Ajustar layout para telas pequenas
-            function ajustarLayout() {
-                if (window.innerWidth < 768) {
-                    document.querySelectorAll('.chart-container').forEach(container => {
-                        container.style.height = '500px';
-                    });
-                } else {
-                    document.querySelectorAll('.chart-container').forEach(container => {
-                        container.style.height = '600px';
-                    });
-                }
-            }
-            
-            // Chamar ajuste inicial e adicionar listener para redimensionamento
-            ajustarLayout();
-            window.addEventListener('resize', ajustarLayout);
-            
-            // Atualizar data de atualização
-            document.getElementById('dataAtualizacao').textContent = moment().format('DD/MM/YYYY HH:mm');
-        });
-    </script>
-
 </div>
 
-<!-- === LOGIN SCRIPT =================================== -->
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/locale/pt-br.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
 <script>
-  document.addEventListener('DOMContentLoaded',()=>{
-    const btn=document.getElementById('btnEntrar');
-    const scrn=document.getElementById('loginScreen');
-    const dash=document.getElementById('dashboard');
-    const err=document.getElementById('loginError');
-    function autenticar(){
-        const u=document.getElementById('usuario').value.trim();
-        const s=document.getElementById('senha').value.trim();
-        if(u==='alberto' && s==='alberto'){
-            err.style.display='none';
-            scrn.style.opacity='0';
-            setTimeout(()=>{scrn.style.display='none';dash.style.display='block';},400);
-        }else{
-            err.style.display='block';
+    Chart.defaults.font.family = "'Segoe UI', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif";
+    Chart.defaults.font.size = 12;
+    Chart.defaults.color = '#666';
+    
+    let dadosCompletos = [];
+    let dadosFiltrados = [];
+    let filtros = {
+        meses: [],
+        lojas: [],
+        vendedores: [],
+        marcas: [],
+        modelos: []
+    };
+    let quadros = {
+        total_avaliacoes: 0,
+        ticket_medio: 0,
+        km_media: 0,
+        media_anos: 0,
+        media_percentual_fipe: 0,
+        captacao_quantidade: 0,
+        captacao_percentual: 0
+    };
+    let graficos = {
+        modelos_mais_vendidos: [],
+        modelos_proximos_fipe: [],
+        ticket_por_marca: [],
+        ticket_por_vendedor: [],
+        avaliacoes_por_marca: [],
+        avaliacoes_por_vendedor: [],
+        captacao_por_vendedor: []
+    };
+    let paginaAtual = 1;
+    const itensPorPagina = 10;
+    let buscaPlacaAtiva = '';
+    
+    const formatadorMoeda = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+        minimumFractionDigits: 2
+    });
+    
+    const formatadorNumero = new Intl.NumberFormat('pt-BR', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    });
+    
+    const formatadorDecimal = new Intl.NumberFormat('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+    
+    const formatadorAno = new Intl.NumberFormat('pt-BR', {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1,
+        useGrouping: false
+    });
+
+    const coresPrimarias = [
+        'rgba(52, 152, 219, 0.8)',
+        'rgba(46, 204, 113, 0.8)',
+        'rgba(155, 89, 182, 0.8)',
+        'rgba(52, 73, 94, 0.8)',
+        'rgba(243, 156, 18, 0.8)',
+        'rgba(231, 76, 60, 0.8)',
+        'rgba(26, 188, 156, 0.8)',
+        'rgba(241, 196, 15, 0.8)',
+        'rgba(230, 126, 34, 0.8)',
+        'rgba(149, 165, 166, 0.8)'
+    ];
+    
+    const coresBordas = [
+        'rgba(52, 152, 219, 1)',
+        'rgba(46, 204, 113, 1)',
+        'rgba(155, 89, 182, 1)',
+        'rgba(52, 73, 94, 1)',
+        'rgba(243, 156, 18, 1)',
+        'rgba(231, 76, 60, 1)',
+        'rgba(26, 188, 156, 1)',
+        'rgba(241, 196, 15, 1)',
+        'rgba(230, 126, 34, 1)',
+        'rgba(149, 165, 166, 1)'
+    ];
+
+    let mapaCoresMarcas = {};
+    
+    let chartTicketMarca;
+    let chartTicketVendedor;
+    let chartAvaliacoesMarca;
+    let chartAvaliacoesVendedor;
+    let chartModelosVendidos;
+    let chartModelosFipe;
+    let chartCaptacaoVendedores;
+    
+    function processarArquivoExcel(arquivo) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            try {
+                document.getElementById('loadingOverlay').style.display = 'flex';
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, { type: 'array' });
+                const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+                const jsonData = XLSX.utils.sheet_to_json(firstSheet, { raw: true });
+                processarDados(jsonData);
+                document.getElementById('loadingOverlay').style.display = 'none';
+                alert('Base de dados carregada com sucesso!');
+            } catch (error) {
+                console.error('Erro ao processar arquivo:', error);
+                alert('Erro ao processar o arquivo. Verifique se é um arquivo Excel válido.');
+                document.getElementById('loadingOverlay').style.display = 'none';
+            }
+        };
+        
+        reader.onerror = function() {
+            alert('Erro ao ler o arquivo.');
+            document.getElementById('loadingOverlay').style.display = 'none';
+        };
+        
+        reader.readAsArrayBuffer(arquivo);
+    }
+    
+    function processarDados(dados) {
+        if (!dados || dados.length === 0) {
+            alert('Arquivo não contém dados válidos.');
+            return;
+        }
+        
+        const colunas = Object.keys(dados[0]);
+        const colunasNecessarias = [
+            'Data de Criação',
+            'Data de Avaliação',
+            'Lojas',
+            'Vendedor',
+            'Marca',
+            'Modelo',
+            'Valor avaliado',
+            'KM',
+            'Ano Modelo',
+            'FIPE',
+            'Placa da Avaliação',
+            'Celular',
+            'Email'
+        ];
+        
+        const colunasPresentes = colunasNecessarias.filter(col => colunas.includes(col));
+        
+        if (colunasPresentes.length < colunasNecessarias.length) {
+            const colunasFaltantes = colunasNecessarias.filter(col => !colunas.includes(col));
+            alert(`Arquivo não contém todas as colunas necessárias. Faltando: ${colunasFaltantes.join(', ')}`);
+            return;
+        }
+        
+        dadosCompletos = dados.map(item => {
+            let dataCriacao = null;
+            try {
+                if (item['Data de Criação']) {
+                    if (typeof item['Data de Criação'] === 'string') {
+                        dataCriacao = moment(item['Data de Criação'], ['DD/MM/YYYY HH:mm:ss', 'YYYY-MM-DD HH:mm:ss', 'MM/DD/YYYY HH:mm:ss']);
+                    } else if (typeof item['Data de Criação'] === 'number') {
+                        dataCriacao = moment(new Date((item['Data de Criação'] - 25569) * 86400 * 1000));
+                    }
+                }
+            } catch (e) {
+                console.error('Erro ao converter data:', e);
+            }
+            
+            const mesAno = dataCriacao && dataCriacao.isValid() ? dataCriacao.format('MMMM/YYYY') : 'Desconhecido';
+            
+            const valorAvaliado = parseFloat(item['Valor avaliado']) || 0;
+            const km = parseFloat(item['KM']) || 0;
+            const ano = parseFloat(item['Ano Modelo']) || 0;
+            const valorFipe = parseFloat(item['FIPE']) || 0;
+            
+            const percentualFipe = (valorFipe > 0 && valorAvaliado > 0) ? (valorAvaliado / valorFipe) * 100 : 0;
+            
+            return {
+                ...item,
+                Modelo: String(item["Modelo"]).trim(),
+                Data_Criacao: dataCriacao && dataCriacao.isValid() ? dataCriacao.format('YYYY-MM-DD HH:mm:ss') : null,
+                Mes_Ano: mesAno,
+                Valor_Avaliacao: valorAvaliado,
+                KM: km,
+                Ano: ano,
+                Valor_Fipe: valorFipe,
+                Percentual_FIPE: percentualFipe
+            };
+        });
+        
+        dadosCompletos = dadosCompletos.filter(item => item.Data_Criacao !== null);
+        dadosFiltrados = [...dadosCompletos];
+        
+        extrairOpcoesFiltros();
+        calcularEstatisticas();
+        calcularDadosGraficos();
+        inicializarInterface();
+    }
+    
+    function extrairOpcoesFiltros() {
+        const mesesUnicos = [...new Set(dadosCompletos.filter(item => String(item.Mes_Ano).endsWith("/2025")).map(item => item.Mes_Ano))];
+        filtros.meses = mesesUnicos.sort((a, b) => moment(a, 'MMMM/YYYY', 'pt-br').diff(moment(b, 'MMMM/YYYY', 'pt-br')));
+        
+        const lojasUnicas = [...new Set(dadosCompletos.map(item => item.Lojas))].filter(Boolean);
+        filtros.lojas = lojasUnicas.sort();
+        
+        const vendedoresUnicos = [...new Set(dadosCompletos.map(item => item.Vendedor))].filter(Boolean);
+        filtros.vendedores = vendedoresUnicos.sort();
+        
+        const marcasUnicas = [...new Set(dadosCompletos.map(item => item.Marca))].filter(Boolean);
+        filtros.marcas = marcasUnicas.sort();
+        
+        const modelosUnicos = [...new Set(dadosCompletos.map(item => String(item.Modelo).trim()))].filter(Boolean);
+        filtros.modelos = modelosUnicos.sort();
+        
+        preencherFiltros();
+    }
+    
+    function calcularEstatisticas() {
+        quadros.total_avaliacoes = dadosFiltrados.length;
+        
+        const dadosSemZeros = dadosFiltrados.filter(item => item.Valor_Avaliacao > 0);
+        quadros.ticket_medio = dadosSemZeros.length > 0 
+            ? dadosSemZeros.reduce((sum, item) => sum + item.Valor_Avaliacao, 0) / dadosSemZeros.length 
+            : 0;
+        
+        const dadosComKM = dadosFiltrados.filter(item => item.KM > 0);
+        quadros.km_media = dadosComKM.length > 0 
+            ? dadosComKM.reduce((sum, item) => sum + item.KM, 0) / dadosComKM.length 
+            : 0;
+        
+        const dadosComAno = dadosFiltrados.filter(item => item.Ano > 0);
+        quadros.media_anos = dadosComAno.length > 0 
+            ? dadosComAno.reduce((sum, item) => sum + item.Ano, 0) / dadosComAno.length 
+            : 0;
+        
+        const dadosComFIPE = dadosFiltrados.filter(item => item.Percentual_FIPE > 0);
+        quadros.media_percentual_fipe = dadosComFIPE.length > 0 
+            ? dadosComFIPE.reduce((sum, item) => sum + item.Percentual_FIPE, 0) / dadosComFIPE.length 
+            : 0;
+
+        const dadosComDataCompra = dadosFiltrados.filter(item => {
+            const campo = item['Data de compra'];
+            return campo !== undefined && campo !== null && String(campo).trim() !== '';
+        });
+        quadros.captacao_quantidade = dadosComDataCompra.length;
+        quadros.captacao_percentual = quadros.total_avaliacoes > 0 
+            ? (quadros.captacao_quantidade / quadros.total_avaliacoes) * 100 
+            : 0;
+        
+        atualizarQuadros();
+    }
+    
+    function calcularDadosGraficos() {
+        const dadosSemZeros = dadosFiltrados.filter(item => item.Valor_Avaliacao > 0);
+
+        // BASE: sempre "Data de Avaliação"
+        const dadosComDataAvaliacao = dadosFiltrados.filter(item => {
+            const campo = item['Data de Avaliação'];
+            return campo !== undefined && campo !== null && String(campo).trim() !== '';
+        });
+
+        // Ticket Médio por Marca (Data de Avaliação)
+        const ticketPorMarca = {};
+        const contagemPorMarca = {};
+
+        dadosComDataAvaliacao.forEach(item => {
+            const valor = item.Valor_Avaliacao;
+            if (!(valor > 0)) return;
+
+            const marca = item.Marca || 'Não informado';
+
+            if (!ticketPorMarca[marca]) {
+                ticketPorMarca[marca] = 0;
+                contagemPorMarca[marca] = 0;
+            }
+
+            ticketPorMarca[marca] += valor;
+            contagemPorMarca[marca]++;
+        });
+
+        graficos.ticket_por_marca = Object.keys(ticketPorMarca).map(marca => ({
+            Marca: marca,
+            'Valor Avaliação': ticketPorMarca[marca] / contagemPorMarca[marca],
+            'Quantidade': contagemPorMarca[marca]
+        }));
+        graficos.ticket_por_marca.sort((a, b) => b["Valor Avaliação"] - a["Valor Avaliação"]);
+        graficos.ticket_por_marca = graficos.ticket_por_marca.slice(0, 20);
+
+        // Ticket Médio por Vendedor
+        const ticketPorVendedor = {};
+        const contagemPorVendedor = {};
+
+        dadosSemZeros.forEach(item => {
+            const vendedor = item.Vendedor || 'Não informado';
+            const valor = item.Valor_Avaliacao;
+
+            if (!ticketPorVendedor[vendedor]) {
+                ticketPorVendedor[vendedor] = 0;
+                contagemPorVendedor[vendedor] = 0;
+            }
+
+            ticketPorVendedor[vendedor] += valor;
+            contagemPorVendedor[vendedor]++;
+        });
+
+        graficos.ticket_por_vendedor = Object.keys(ticketPorVendedor).map(vendedor => ({
+            Vendedor: vendedor,
+            'Valor Avaliação': ticketPorVendedor[vendedor] / contagemPorVendedor[vendedor]
+        }));
+        graficos.ticket_por_vendedor.sort((a, b) => b["Valor Avaliação"] - a["Valor Avaliação"]);
+        graficos.ticket_por_vendedor = graficos.ticket_por_vendedor.slice(0, 20);
+
+        // Quantidade de Avaliações por Marca (Data de Avaliação)
+        const avaliacoesPorMarca = {};
+        dadosComDataAvaliacao.forEach(item => {
+            const marca = item.Marca || 'Não informado';
+            if (!avaliacoesPorMarca[marca]) {
+                avaliacoesPorMarca[marca] = 0;
+            }
+            avaliacoesPorMarca[marca]++;
+        });
+
+        graficos.avaliacoes_por_marca = Object.keys(avaliacoesPorMarca).map(marca => ({
+            Marca: marca,
+            Quantidade: avaliacoesPorMarca[marca]
+        }));
+        graficos.avaliacoes_por_marca.sort((a, b) => b.Quantidade - a.Quantidade);
+        graficos.avaliacoes_por_marca = graficos.avaliacoes_por_marca.slice(0, 10);
+
+        // Quantidade de Avaliações por Vendedor (Data de Avaliação)
+        const avaliacoesPorVendedor = {};
+        dadosComDataAvaliacao.forEach(item => {
+            const vendedor = item.Vendedor || 'Não informado';
+            if (!avaliacoesPorVendedor[vendedor]) {
+                avaliacoesPorVendedor[vendedor] = 0;
+            }
+            avaliacoesPorVendedor[vendedor]++;
+        });
+
+        graficos.avaliacoes_por_vendedor = Object.keys(avaliacoesPorVendedor).map(vendedor => ({
+            Vendedor: vendedor,
+            Quantidade: avaliacoesPorVendedor[vendedor]
+        }));
+        graficos.avaliacoes_por_vendedor.sort((a, b) => b.Quantidade - a.Quantidade);
+        graficos.avaliacoes_por_vendedor = graficos.avaliacoes_por_vendedor.slice(0, 10);
+
+        // Top 10 Modelos Mais Avaliados
+        const avaliacoesPorModelo = {};
+        dadosFiltrados.forEach(item => {
+            const modelo = item.Modelo || 'Não informado';
+            avaliacoesPorModelo[modelo] = (avaliacoesPorModelo[modelo] || 0) + 1;
+        });
+        graficos.modelos_mais_vendidos = Object.keys(avaliacoesPorModelo).map(modelo => ({
+            Modelo: modelo,
+            Quantidade: avaliacoesPorModelo[modelo]
+        }));
+        graficos.modelos_mais_vendidos.sort((a, b) => b.Quantidade - a.Quantidade);
+        if (graficos.modelos_mais_vendidos.length > 10) {
+            graficos.modelos_mais_vendidos = graficos.modelos_mais_vendidos.slice(0, 10);
+        }
+
+        // Top 10 Modelos Mais Próximos de 100% FIPE
+        const somaPercPorModelo = {};
+        const contagemPercModelo = {};
+        dadosFiltrados.forEach(item => {
+            const modelo = item.Modelo || 'Não informado';
+            const percRaw = item.Percentual_FIPE;
+            const perc = parseFloat(String(percRaw).replace(',', '.'));
+            if (!isNaN(perc)) {
+                somaPercPorModelo[modelo] = (somaPercPorModelo[modelo] || 0) + perc;
+                contagemPercModelo[modelo] = (contagemPercModelo[modelo] || 0) + 1;
+            }
+        });
+        graficos.modelos_proximos_fipe = Object.keys(somaPercPorModelo).map(modelo => ({
+            Modelo: modelo,
+            Percentual: somaPercPorModelo[modelo] / contagemPercModelo[modelo]
+        }));
+        graficos.modelos_proximos_fipe.sort((a, b) => Math.abs(100 - a.Percentual) - Math.abs(100 - b.Percentual));
+        if (graficos.modelos_proximos_fipe.length > 10) {
+            graficos.modelos_proximos_fipe = graficos.modelos_proximos_fipe.slice(0, 10);
+        }
+
+        // Captação por Vendedor
+        const captacaoPorVendedor = {};
+        dadosFiltrados.forEach(item => {
+            const campo = item['Data de compra'];
+            if (campo !== undefined && campo !== null && String(campo).trim() !== '') {
+                const vendedor = item.Vendedor || 'Não informado';
+                captacaoPorVendedor[vendedor] = (captacaoPorVendedor[vendedor] || 0) + 1;
+            }
+        });
+        graficos.captacao_por_vendedor = Object.keys(captacaoPorVendedor).map(vendedor => ({
+            Vendedor: vendedor,
+            Quantidade: captacaoPorVendedor[vendedor]
+        }));
+        graficos.captacao_por_vendedor.sort((a, b) => b.Quantidade - a.Quantidade);
+        if (graficos.captacao_por_vendedor.length > 20) {
+            graficos.captacao_por_vendedor = graficos.captacao_por_vendedor.slice(0, 20);
         }
     }
-    btn.addEventListener('click',autenticar);
-    ['usuario','senha'].forEach(id=>{
-        document.getElementById(id).addEventListener('keyup',e=>{if(e.key==='Enter')autenticar();});
+    
+    function inicializarInterface() {
+        inicializarGraficos();
+        atualizarTabela();
+        gerarStorytelling();
+        document.getElementById('dataAtualizacao').textContent = moment().format('DD/MM/YYYY HH:mm');
+    }
+    
+    function preencherFiltros() {
+        const filtroMes = document.getElementById('filtroMes');
+        const filtroLoja = document.getElementById('filtroLoja');
+        const filtroVendedor = document.getElementById('filtroVendedor');
+        const filtroMarca = document.getElementById('filtroMarca');
+        const filtroModelo = document.getElementById('filtroModelo');
+        
+        filtroMes.innerHTML = '';
+        filtroLoja.innerHTML = '';
+        filtroVendedor.innerHTML = '';
+        filtroMarca.innerHTML = '';
+        filtroModelo.innerHTML = '';
+        
+        filtros.meses.forEach(mes => {
+            const option = document.createElement('option');
+            option.value = mes;
+            option.textContent = mes;
+            filtroMes.appendChild(option);
+        });
+        
+        filtros.lojas.forEach(loja => {
+            const option = document.createElement('option');
+            option.value = loja;
+            option.textContent = loja;
+            filtroLoja.appendChild(option);
+        });
+        
+        filtros.vendedores.forEach(vendedor => {
+            const option = document.createElement('option');
+            option.value = vendedor;
+            option.textContent = vendedor;
+            filtroVendedor.appendChild(option);
+        });
+        
+        filtros.marcas.forEach(marca => {
+            const option = document.createElement('option');
+            option.value = marca;
+            option.textContent = marca;
+            filtroMarca.appendChild(option);
+        });
+        
+        filtros.modelos.forEach(modelo => {
+            const option = document.createElement('option');
+            option.value = modelo;
+            option.textContent = modelo;
+            filtroModelo.appendChild(option);
+        });
+        
+        $('.select2-multiple').select2({
+            theme: 'bootstrap-5',
+            width: '100%',
+            placeholder: 'Selecione...',
+            allowClear: true
+        });
+    }
+    
+    function atualizarQuadros() {
+        document.getElementById('totalAvaliacoes').textContent = formatadorNumero.format(quadros.total_avaliacoes);
+        document.getElementById('ticketMedio').textContent = formatadorMoeda.format(quadros.ticket_medio);
+        document.getElementById('kmMedia').textContent = formatadorNumero.format(quadros.km_media);
+        document.getElementById('mediaAnos').textContent = formatadorAno.format(quadros.media_anos);
+        document.getElementById('percentualFipe').textContent = formatadorDecimal.format(quadros.media_percentual_fipe) + '%';
+
+        const elemCaptacaoQtd = document.getElementById('captacaoQuantidade');
+        const elemCaptacaoPerc = document.getElementById('captacaoPercentual');
+        if (elemCaptacaoQtd && elemCaptacaoPerc) {
+            elemCaptacaoQtd.textContent = formatadorNumero.format(quadros.captacao_quantidade);
+            elemCaptacaoPerc.textContent = formatadorDecimal.format(quadros.captacao_percentual);
+        }
+    }
+    
+    function inicializarGraficos() {
+        if (chartTicketMarca) chartTicketMarca.destroy();
+        if (chartTicketVendedor) chartTicketVendedor.destroy();
+        if (chartAvaliacoesMarca) chartAvaliacoesMarca.destroy();
+        if (chartAvaliacoesVendedor) chartAvaliacoesVendedor.destroy();
+        if (chartModelosVendidos) chartModelosVendidos.destroy();
+        if (chartModelosFipe) chartModelosFipe.destroy();
+        if (chartCaptacaoVendedores) chartCaptacaoVendedores.destroy();
+
+        // mapa de cores por marca
+        const todasMarcas = Array.from(new Set([
+            ...graficos.ticket_por_marca.map(item => item.Marca),
+            ...graficos.avaliacoes_por_marca.map(item => item.Marca)
+        ]));
+
+        mapaCoresMarcas = {};
+        todasMarcas.sort().forEach((marca, index) => {
+            const corIndex = index % coresPrimarias.length;
+            mapaCoresMarcas[marca] = {
+                background: coresPrimarias[corIndex],
+                border: coresBordas[corIndex]
+            };
+        });
+
+        const obterCoresMarcas = (listaMarcas) => {
+            return {
+                background: listaMarcas.map(marca =>
+                    mapaCoresMarcas[marca] ? mapaCoresMarcas[marca].background : coresPrimarias[0]
+                ),
+                border: listaMarcas.map(marca =>
+                    mapaCoresMarcas[marca] ? mapaCoresMarcas[marca].border : coresBordas[0]
+                )
+            };
+        };
+
+        // Ticket Médio por Marca (barras horizontais)
+        const ctxTicketMarca = document.getElementById('chartTicketMarca').getContext('2d');
+        const labelsTicketMarca = graficos.ticket_por_marca.map(item => item.Marca);
+        const coresTicketMarca = obterCoresMarcas(labelsTicketMarca);
+
+        chartTicketMarca = new Chart(ctxTicketMarca, {
+            type: 'bar',
+            data: {
+                labels: labelsTicketMarca,
+                datasets: [{
+                    label: 'Ticket Médio (R$)',
+                    data: graficos.ticket_por_marca.map(item => item['Valor Avaliação']),
+                    backgroundColor: coresTicketMarca.background,
+                    borderColor: coresTicketMarca.border,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const marca = graficos.ticket_por_marca[context.dataIndex];
+                                return formatadorMoeda.format(context.raw) +
+                                    ' (' + formatadorNumero.format(marca.Quantidade) + ' avaliações)';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return formatadorMoeda.format(value);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Ticket Médio por Vendedor (barras horizontais)
+        const ctxTicketVendedor = document.getElementById('chartTicketVendedor').getContext('2d');
+        chartTicketVendedor = new Chart(ctxTicketVendedor, {
+            type: 'bar',
+            data: {
+                labels: graficos.ticket_por_vendedor.map(item => item.Vendedor),
+                datasets: [{
+                    label: 'Ticket Médio (R$)',
+                    data: graficos.ticket_por_vendedor.map(item => item['Valor Avaliação']),
+                    backgroundColor: coresPrimarias,
+                    borderColor: coresBordas,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return formatadorMoeda.format(context.raw);
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return formatadorMoeda.format(value);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Quantidade de Avaliações por Marca (AGORA BARRAS VERTICAIS)
+        const ctxAvaliacoesMarca = document.getElementById('chartAvaliacoesMarca').getContext('2d');
+        const labelsAvaliacoesMarca = graficos.avaliacoes_por_marca.map(item => item.Marca);
+        const coresAvaliacoesMarca = obterCoresMarcas(labelsAvaliacoesMarca);
+
+        chartAvaliacoesMarca = new Chart(ctxAvaliacoesMarca, {
+            type: 'bar',
+            data: {
+                labels: labelsAvaliacoesMarca,
+                datasets: [{
+                    label: 'Quantidade de Avaliações',
+                    data: graficos.avaliacoes_por_marca.map(item => item.Quantidade),
+                    backgroundColor: coresAvaliacoesMarca.background,
+                    borderColor: coresAvaliacoesMarca.border,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => {
+                                const total = ctx.dataset.data.reduce((acc, val) => acc + val, 0);
+                                const pct = ((ctx.raw / total) * 100).toFixed(1).replace('.', ',') + '%';
+                                return formatadorNumero.format(ctx.raw) + ' (' + pct + ')';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { precision: 0 }
+                    }
+                }
+            }
+        });
+
+        // Quantidade de Avaliações por Vendedor (barras verticais)
+        const ctxAvaliacoesVendedor = document.getElementById('chartAvaliacoesVendedor').getContext('2d');
+        chartAvaliacoesVendedor = new Chart(ctxAvaliacoesVendedor, {
+            type: 'bar',
+            data: {
+                labels: graficos.avaliacoes_por_vendedor.map(item => item.Vendedor),
+                datasets: [{
+                    label: 'Quantidade de Avaliações',
+                    data: graficos.avaliacoes_por_vendedor.map(item => item.Quantidade),
+                    backgroundColor: coresPrimarias,
+                    borderColor: coresBordas,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: true },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => {
+                                const total = ctx.dataset.data.reduce((acc, val) => acc + val, 0);
+                                const pct = ((ctx.raw / total) * 100).toFixed(1).replace('.', ',') + '%';
+                                return formatadorNumero.format(ctx.raw) + ' (' + pct + ')';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { precision: 0 }
+                    }
+                }
+            }
+        });
+
+        // Top 10 Modelos Mais Avaliados
+        const ctxModelosVendidos = document.getElementById('chartModelosVendidos').getContext('2d');
+        chartModelosVendidos = new Chart(ctxModelosVendidos, {
+            type: 'bar',
+            data: {
+                labels: graficos.modelos_mais_vendidos.map(item => item.Modelo),
+                datasets: [{
+                    label: 'Avaliações',
+                    data: graficos.modelos_mais_vendidos.map(item => item.Quantidade),
+                    backgroundColor: coresPrimarias,
+                    borderColor: coresBordas,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: ctx => formatadorNumero.format(ctx.raw) } }
+                },
+                scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
+            }
+        });
+
+        // Top 10 Modelos Mais Bem Pagos
+        const ctxModelosFipe = document.getElementById('chartModelosFipe').getContext('2d');
+        chartModelosFipe = new Chart(ctxModelosFipe, {
+            type: 'bar',
+            data: {
+                labels: graficos.modelos_proximos_fipe.map(item => item.Modelo),
+                datasets: [{
+                    label: 'Percentual Médio FIPE (%)',
+                    data: graficos.modelos_proximos_fipe.map(item => item.Percentual),
+                    backgroundColor: coresPrimarias,
+                    borderColor: coresBordas,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: ctx => formatadorDecimal.format(ctx.raw) + '%' } }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: value => formatadorDecimal.format(value) + '%'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Captação por Vendedor
+        const ctxCaptacaoVendedores = document.getElementById('chartCaptacaoVendedores').getContext('2d');
+        const captacaoColors = graficos.captacao_por_vendedor.map((_, index) => coresPrimarias[index % coresPrimarias.length]);
+        const captacaoBorderColors = graficos.captacao_por_vendedor.map((_, index) => coresBordas[index % coresBordas.length]);
+        chartCaptacaoVendedores = new Chart(ctxCaptacaoVendedores, {
+            type: 'bar',
+            data: {
+                labels: graficos.captacao_por_vendedor.map(item => item.Vendedor),
+                datasets: [{
+                    label: 'Captações',
+                    data: graficos.captacao_por_vendedor.map(item => item.Quantidade),
+                    backgroundColor: captacaoColors,
+                    borderColor: captacaoBorderColors,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw + ' captações';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { beginAtZero: true },
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    }
+    
+    function atualizarTabela() {
+        const tbody = document.querySelector('#tabelaAvaliacoes tbody');
+        tbody.innerHTML = '';
+        
+        const inicio = (paginaAtual - 1) * itensPorPagina;
+        const fim = Math.min(inicio + itensPorPagina, dadosFiltrados.length);
+        
+        for (let i = inicio; i < fim; i++) {
+            const avaliacao = dadosFiltrados[i];
+            const tr = document.createElement('tr');
+            
+            tr.innerHTML = `
+                <td>${avaliacao.Data_Criacao ? moment(avaliacao.Data_Criacao).format('DD/MM/YYYY') : '-'}</td>
+                <td>${avaliacao.Lojas || '-'}</td>
+                <td>${avaliacao.Vendedor || '-'}</td>
+                <td>${avaliacao.Cliente || '-'}</td>
+                <td>${avaliacao['Placa da Avaliação'] || '-'}</td>
+                <td>${avaliacao.Marca || '-'}</td>
+                <td>${avaliacao.Modelo || '-'}</td>
+                <td>${avaliacao.Ano || '-'}</td>
+                <td>${formatadorNumero.format(avaliacao.KM || 0)}</td>
+                <td>${formatadorMoeda.format(avaliacao.Valor_Avaliacao || 0)}</td>
+                <td>${formatadorDecimal.format(avaliacao.Percentual_FIPE || 0)}%</td>
+            `;
+            
+            tbody.appendChild(tr);
+        }
+        
+        document.getElementById('tableInfo').textContent =
+            `Mostrando ${dadosFiltrados.length === 0 ? 0 : inicio + 1} a ${fim} de ${dadosFiltrados.length} registros`;
+        
+        atualizarPaginacao();
+    }
+    
+    function atualizarPaginacao() {
+        const paginationElement = document.getElementById('tablePagination');
+        paginationElement.innerHTML = '';
+        
+        const totalPaginas = Math.ceil(dadosFiltrados.length / itensPorPagina) || 1;
+        
+        const liAnterior = document.createElement('li');
+        liAnterior.className = `page-item ${paginaAtual === 1 ? 'disabled' : ''}`;
+        liAnterior.innerHTML = `<a class="page-link" href="#" aria-label="Anterior"><span aria-hidden="true">&laquo;</span></a>`;
+        liAnterior.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (paginaAtual > 1) {
+                paginaAtual--;
+                atualizarTabela();
+            }
+        });
+        paginationElement.appendChild(liAnterior);
+        
+        const maxPaginas = 5;
+        let startPage = Math.max(1, paginaAtual - Math.floor(maxPaginas / 2));
+        let endPage = Math.min(totalPaginas, startPage + maxPaginas - 1);
+        
+        if (endPage - startPage + 1 < maxPaginas) {
+            startPage = Math.max(1, endPage - maxPaginas + 1);
+        }
+        
+        for (let i = startPage; i <= endPage; i++) {
+            const li = document.createElement('li');
+            li.className = `page-item ${i === paginaAtual ? 'active' : ''}`;
+            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+            li.addEventListener('click', (e) => {
+                e.preventDefault();
+                paginaAtual = i;
+                atualizarTabela();
+            });
+            paginationElement.appendChild(li);
+        }
+        
+        const liProximo = document.createElement('li');
+        liProximo.className = `page-item ${paginaAtual === totalPaginas ? 'disabled' : ''}`;
+        liProximo.innerHTML = `<a class="page-link" href="#" aria-label="Próximo"><span aria-hidden="true">&raquo;</span></a>`;
+        liProximo.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (paginaAtual < totalPaginas) {
+                paginaAtual++;
+                atualizarTabela();
+            }
+        });
+        paginationElement.appendChild(liProximo);
+    }
+    
+    function aplicarFiltros() {
+        const mesesSelecionados = Array.from(document.getElementById('filtroMes').selectedOptions).map(option => option.value);
+        const lojasSelecionadas = Array.from(document.getElementById('filtroLoja').selectedOptions).map(option => option.value);
+        const vendedoresSelecionados = Array.from(document.getElementById('filtroVendedor').selectedOptions).map(option => option.value);
+        const marcasSelecionadas = Array.from(document.getElementById('filtroMarca').selectedOptions).map(option => option.value);
+        const modelosSelecionados = Array.from(document.getElementById('filtroModelo').selectedOptions).map(option => option.value);
+        
+        const buscaPlaca = document.getElementById('buscaPlaca').value.trim().toLowerCase();
+        buscaPlacaAtiva = buscaPlaca;
+        
+        document.getElementById('loadingOverlay').style.display = 'flex';
+        
+        dadosFiltrados = dadosCompletos.filter(item => {
+            const mesMatch = mesesSelecionados.length === 0 || mesesSelecionados.includes(item.Mes_Ano);
+            const lojaMatch = lojasSelecionadas.length === 0 || lojasSelecionadas.includes(item.Lojas);
+            const vendedorMatch = vendedoresSelecionados.length === 0 || vendedoresSelecionados.includes(item.Vendedor);
+            const marcaMatch = marcasSelecionadas.length === 0 || marcasSelecionadas.includes(item.Marca);
+            const modeloMatch = modelosSelecionados.length === 0 || modelosSelecionados.includes(item.Modelo);
+            
+            const placaMatch = buscaPlaca === '' || (item['Placa da Avaliação'] &&
+                item['Placa da Avaliação'].toString().toLowerCase().includes(buscaPlaca));
+            
+            return mesMatch && lojaMatch && vendedorMatch && marcaMatch && modeloMatch && placaMatch;
+        });
+        
+        calcularEstatisticas();
+        calcularDadosGraficos();
+        inicializarGraficos();
+        paginaAtual = 1;
+        atualizarTabela();
+        gerarStorytelling();
+        
+        const clearBtn = document.getElementById('clearSearchBtn');
+        if (buscaPlaca) {
+            clearBtn.style.display = 'block';
+        } else {
+            clearBtn.style.display = 'none';
+        }
+        
+        document.getElementById('loadingOverlay').style.display = 'none';
+    }
+    
+    function limparFiltros() {
+        $('.select2-multiple').val(null).trigger('change');
+        
+        document.getElementById('buscaPlaca').value = '';
+        document.getElementById('clearSearchBtn').style.display = 'none';
+        buscaPlacaAtiva = '';
+        
+        aplicarFiltros();
+    }
+    
+    function gerarStorytelling() {
+        const storyContent = document.getElementById('storyContent');
+        const totalAvaliacoes = dadosFiltrados.length;
+        
+        if (totalAvaliacoes === 0) {
+            storyContent.innerHTML = `
+                <p>Não há dados disponíveis para os filtros selecionados. Por favor, ajuste os filtros para visualizar os insights.</p>
+            `;
+            return;
+        }
+        
+        const marcasPorQuantidade = {};
+        dadosFiltrados.forEach(item => {
+            const marca = item.Marca || 'Não informado';
+            marcasPorQuantidade[marca] = (marcasPorQuantidade[marca] || 0) + 1;
+        });
+        
+        const marcaMaisAvaliada = Object.keys(marcasPorQuantidade).reduce((a, b) => 
+            marcasPorQuantidade[a] > marcasPorQuantidade[b] ? a : b
+        );
+        
+        const quantidadeMarcaMaisAvaliada = marcasPorQuantidade[marcaMaisAvaliada];
+        const percentualMarcaMaisAvaliada = (quantidadeMarcaMaisAvaliada / totalAvaliacoes * 100).toFixed(1);
+
+        const modelosPorQuantidade = {};
+        dadosFiltrados.forEach(item => {
+            const modelo = (item.Modelo || item['Modelo Veículo'] || item['Modelo do Veículo'] || item['ModeloVeiculo'] || 'Não informado').toString().trim();
+            modelosPorQuantidade[modelo] = (modelosPorQuantidade[modelo] || 0) + 1;
+        });
+        const modeloMaisAvaliado = Object.keys(modelosPorQuantidade).reduce((a, b) =>
+            modelosPorQuantidade[a] > modelosPorQuantidade[b] ? a : b
+        );
+        const quantidadeModeloMaisAvaliado = modelosPorQuantidade[modeloMaisAvaliado];
+        const percentualModeloMaisAvaliado = (quantidadeModeloMaisAvaliado / totalAvaliacoes * 100).toFixed(1);
+
+        const contagemAvaliacoesPorVendedor = {};
+        dadosFiltrados.forEach(item => {
+            const vend = (item.Vendedor || 'Não informado').toString().trim();
+            contagemAvaliacoesPorVendedor[vend] = (contagemAvaliacoesPorVendedor[vend] || 0) + 1;
+        });
+        const vendedorMaisAvaliacoes = Object.keys(contagemAvaliacoesPorVendedor).reduce((a,b)=>
+            contagemAvaliacoesPorVendedor[a] > contagemAvaliacoesPorVendedor[b] ? a : b
+        );
+        const quantidadeVendedorMaisAvaliacoes = contagemAvaliacoesPorVendedor[vendedorMaisAvaliacoes];
+
+        const vendedoresSemZeros = {};
+        const contagemVendedores = {};
+        
+        dadosFiltrados.forEach(item => {
+            if (item.Valor_Avaliacao > 0) {
+                const vendedor = item.Vendedor || 'Não informado';
+                const valor = item.Valor_Avaliacao;
+                
+                vendedoresSemZeros[vendedor] = (vendedoresSemZeros[vendedor] || 0) + valor;
+                contagemVendedores[vendedor] = (contagemVendedores[vendedor] || 0) + 1;
+            }
+        });
+        
+        const ticketMedioPorVendedor = {};
+        Object.keys(vendedoresSemZeros).forEach(vendedor => {
+            ticketMedioPorVendedor[vendedor] = vendedoresSemZeros[vendedor] / contagemVendedores[vendedor];
+        });
+        
+        const vendedorMaiorTicket = Object.keys(ticketMedioPorVendedor).reduce((a, b) => 
+            ticketMedioPorVendedor[a] > ticketMedioPorVendedor[b] ? a : b
+        );
+        
+        const maiorTicketMedio = ticketMedioPorVendedor[vendedorMaiorTicket];
+        
+        const lojasPorQuantidade = {};
+        dadosFiltrados.forEach(item => {
+            const loja = item.Lojas || 'Não informado';
+            lojasPorQuantidade[loja] = (lojasPorQuantidade[loja] || 0) + 1;
+        });
+        
+        const lojaMaisAvaliacoes = Object.keys(lojasPorQuantidade).reduce((a, b) => 
+            lojasPorQuantidade[a] > lojasPorQuantidade[b] ? a : b
+        );
+        
+        const quantidadeLojaMaisAvaliacoes = lojasPorQuantidade[lojaMaisAvaliacoes];
+        const percentualLojaMaisAvaliacoes = (quantidadeLojaMaisAvaliacoes / totalAvaliacoes * 100).toFixed(1);
+        
+        let textoBuscaPlaca = '';
+        if (buscaPlacaAtiva) {
+            textoBuscaPlaca = `<p><strong>Filtro ativo:</strong> Resultados filtrados pela placa "${buscaPlacaAtiva.toUpperCase()}".</p>`;
+        }
+        
+        storyContent.innerHTML = `
+            ${textoBuscaPlaca}
+            <p>Analisando as <strong>${formatadorNumero.format(totalAvaliacoes)}</strong> avaliações de veículos, 
+            identificamos que a marca <strong>${marcaMaisAvaliada}</strong> representa 
+            <strong>${percentualMarcaMaisAvaliada}%</strong> do total, com 
+            <strong>${formatadorNumero.format(quantidadeMarcaMaisAvaliada)}</strong> avaliações.</p>
+            
+            <p>O modelo <strong>${modeloMaisAvaliado}</strong> concentra 
+            <strong>${percentualModeloMaisAvaliado}%</strong> das avaliações, totalizando 
+            <strong>${formatadorNumero.format(quantidadeModeloMaisAvaliado)}</strong> registros.</p>
+
+            <p>O vendedor com maior volume de avaliações é <strong>${vendedorMaisAvaliacoes}</strong>, com 
+            <strong>${formatadorNumero.format(quantidadeVendedorMaisAvaliacoes)}</strong> avaliações registradas, 
+            enquanto o maior ticket médio está com <strong>${vendedorMaiorTicket}</strong>, com uma média de 
+            <strong>${formatadorMoeda.format(maiorTicketMedio)}</strong> por avaliação.</p>
+            
+            <p>Entre as lojas, <strong>${lojaMaisAvaliacoes}</strong> se destaca com 
+            <strong>${formatadorNumero.format(quantidadeLojaMaisAvaliacoes)}</strong> avaliações, o que representa 
+            <strong>${percentualLojaMaisAvaliacoes}%</strong> do total analisado.</p>
+        `;
+    }
+
+    function exportarExcel() {
+        try {
+            if (!dadosFiltrados || dadosFiltrados.length === 0) {
+                alert('Não há dados para exportar.');
+                return;
+            }
+            const wb = XLSX.utils.book_new();
+            const dadosExport = dadosFiltrados.map(item => ({
+                'Data': item.Data_Criacao ? moment(item.Data_Criacao).format('DD/MM/YYYY') : '',
+                'Loja': item.Lojas || '',
+                'Vendedor': item.Vendedor || '',
+                'Cliente': item.Cliente || '',
+                'Placa': item['Placa da Avaliação'] || '',
+                'Marca': item.Marca || '',
+                'Modelo': item.Modelo || '',
+                'Ano': item.Ano || '',
+                'KM': item.KM || 0,
+                'Valor Avaliação': item.Valor_Avaliacao || 0,
+                '% FIPE': item.Percentual_FIPE || 0
+            }));
+            const ws = XLSX.utils.json_to_sheet(dadosExport);
+            XLSX.utils.book_append_sheet(wb, ws, 'Avaliações');
+            XLSX.writeFile(wb, 'avaliacoes_filtradas.xlsx');
+        } catch (error) {
+            console.error('Erro ao exportar Excel:', error);
+            alert('Erro ao exportar dados para Excel.');
+        }
+    }
+
+    function exportarPDF() {
+        try {
+            if (!dadosFiltrados || dadosFiltrados.length === 0) {
+                alert('Não há dados para exportar.');
+                return;
+            }
+
+            document.getElementById('loadingOverlay').style.display = 'flex';
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('l', 'pt');
+
+            doc.setFontSize(14);
+            doc.text('Relatório de Avaliações de Veículos', 40, 40);
+            doc.setFontSize(10);
+            doc.text(`Gerado em: ${moment().format('DD/MM/YYYY HH:mm')}`, 40, 58);
+
+            const dadosTabela = dadosFiltrados.map(item => [
+                item.Data_Criacao ? moment(item.Data_Criacao).format('DD/MM/YYYY') : '',
+                item.Lojas || '',
+                item.Vendedor || '',
+                item.Cliente || '',
+                item['Placa da Avaliação'] || '',
+                item.Marca || '',
+                item.Modelo || '',
+                item.Ano || '',
+                formatadorNumero.format(item.KM || 0),
+                formatadorMoeda.format(item.Valor_Avaliacao || 0),
+                formatadorDecimal.format(item.Percentual_FIPE || 0) + '%'
+            ]);
+
+            doc.autoTable({
+                startY: 70,
+                head: [[
+                    'Data', 'Loja', 'Vendedor', 'Cliente', 'Placa',
+                    'Marca', 'Modelo', 'Ano', 'KM', 'Valor', '% FIPE'
+                ]],
+                body: dadosTabela,
+                styles: { fontSize: 8 },
+                headStyles: { fillColor: [52, 152, 219] }
+            });
+
+            doc.save('avaliacoes_filtradas.pdf');
+            document.getElementById('loadingOverlay').style.display = 'none';
+        } catch (error) {
+            console.error('Erro ao exportar PDF:', error);
+            alert('Erro ao exportar dados para PDF.');
+            document.getElementById('loadingOverlay').style.display = 'none';
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('loadingOverlay').style.display = 'none';
+        
+        document.getElementById('btnAplicarFiltros').addEventListener('click', aplicarFiltros);
+        document.getElementById('btnLimparFiltros').addEventListener('click', limparFiltros);
+        
+        document.getElementById('fileUpload').addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                processarArquivoExcel(e.target.files[0]);
+            }
+        });
+        
+        document.getElementById('btnExportarExcel').addEventListener('click', exportarExcel);
+        document.getElementById('btnExportarPDF').addEventListener('click', exportarPDF);
+        
+        const buscaPlacaInput = document.getElementById('buscaPlaca');
+        const clearSearchBtn = document.getElementById('clearSearchBtn');
+        
+        let timeoutBusca;
+        buscaPlacaInput.addEventListener('input', () => {
+            clearTimeout(timeoutBusca);
+            timeoutBusca = setTimeout(() => {
+                aplicarFiltros();
+            }, 500);
+        });
+        
+        buscaPlacaInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                clearTimeout(timeoutBusca);
+                aplicarFiltros();
+            }
+        });
+        
+        clearSearchBtn.addEventListener('click', () => {
+            buscaPlacaInput.value = '';
+            clearSearchBtn.style.display = 'none';
+            aplicarFiltros();
+        });
+        
+        document.getElementById('dataAtualizacao').textContent = moment().format('DD/MM/YYYY HH:mm');
     });
-  });
 </script>
 
 </body>
 </html>
-
