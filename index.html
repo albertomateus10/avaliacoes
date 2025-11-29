@@ -1031,17 +1031,32 @@
 
         // Captação por Vendedor
         const captacaoPorVendedor = {};
+        // avaliacoesPorVendedor já foi calculado acima (linha 980)
+        // const avaliacoesPorVendedor = {}; // Reutilizando o objeto avaliacoesPorVendedor
+        
         dadosFiltrados.forEach(item => {
+            const vendedor = item.Vendedor || 'Não informado';
+            
+            // Contagem de Captação
             const campo = item['Data de compra'];
             if (campo !== undefined && campo !== null && String(campo).trim() !== '') {
-                const vendedor = item.Vendedor || 'Não informado';
                 captacaoPorVendedor[vendedor] = (captacaoPorVendedor[vendedor] || 0) + 1;
             }
         });
-        graficos.captacao_por_vendedor = Object.keys(captacaoPorVendedor).map(vendedor => ({
-            Vendedor: vendedor,
-            Quantidade: captacaoPorVendedor[vendedor]
-        }));
+        
+        graficos.captacao_por_vendedor = Object.keys(captacaoPorVendedor).map(vendedor => {
+            const avaliacoes = avaliacoesPorVendedor[vendedor] || 0;
+            const captacoes = captacaoPorVendedor[vendedor] || 0;
+            const percentualConversao = avaliacoes > 0 ? (captacoes / avaliacoes) * 100 : 0;
+            
+            return {
+                Vendedor: vendedor,
+                Quantidade: captacoes,
+                Avaliacoes: avaliacoes,
+                PercentualConversao: percentualConversao
+            };
+        });
+        
         graficos.captacao_por_vendedor.sort((a, b) => b.Quantidade - a.Quantidade);
         if (graficos.captacao_por_vendedor.length > 20) {
             graficos.captacao_por_vendedor = graficos.captacao_por_vendedor.slice(0, 20);
@@ -1127,6 +1142,7 @@
     }
     
     function inicializarGraficos() {
+        const totalAvaliacoesGeral = dadosCompletos.length;
         if (chartTicketMarca) chartTicketMarca.destroy();
         if (chartTicketVendedor) chartTicketVendedor.destroy();
         if (chartAvaliacoesMarca) chartAvaliacoesMarca.destroy();
@@ -1273,7 +1289,7 @@
                     tooltip: {
                         callbacks: {
                             label: ctx => {
-                                const total = ctx.dataset.data.reduce((acc, val) => acc + val, 0);
+                                const total = totalAvaliacoesGeral; // Total de avaliações do dataset completo
                                 const pct = ((ctx.raw / total) * 100).toFixed(1).replace('.', ',') + '%';
                                 return formatadorNumero.format(ctx.raw) + ' (' + pct + ')';
                             }
@@ -1311,7 +1327,7 @@
                     tooltip: {
                         callbacks: {
                             label: ctx => {
-                                const total = ctx.dataset.data.reduce((acc, val) => acc + val, 0);
+                                const total = totalAvaliacoesGeral; // Total de avaliações do dataset completo
                                 const pct = ((ctx.raw / total) * 100).toFixed(1).replace('.', ',') + '%';
                                 return formatadorNumero.format(ctx.raw) + ' (' + pct + ')';
                             }
@@ -1408,7 +1424,9 @@
                     tooltip: {
                         callbacks: {
                             label: function(context) {
-                                return context.raw + ' captações';
+                                const vendedorData = graficos.captacao_por_vendedor[context.dataIndex];
+                                const conversaoFormatada = formatadorDecimal.format(vendedorData.PercentualConversao);
+                                return 'Captações: ' + context.raw + ' (' + conversaoFormatada + '% de conversão)';
                             }
                         }
                     }
