@@ -94,7 +94,14 @@
             color: #000;
         }
         
-        .stats-card-subtitle {
+        
+        .stats-card-value.captacao-lider {
+            font-size: 16px;
+            line-height: 1.2;
+            white-space: normal;
+            word-break: break-word;
+        }
+.stats-card-subtitle {
             font-size: 12px;
             color: #6c757d;
         }
@@ -506,10 +513,10 @@
                     <div class="card-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
-                    <h3 class="stats-card-title">CAPTAÇÃO</h3>
-                    <div class="stats-card-value" id="captacaoQuantidade">0</div>
+                    <h3 class="stats-card-title">LÍDER EM CAPTAÇÃO</h3>
+                    <div class="stats-card-value captacao-lider" id="captacaoLiderNome">-</div>
                     <div class="stats-card-subtitle">
-                        <span id="captacaoPercentual">0</span>% das avaliações
+                        <span id="captacaoLiderQtd">0</span> captações • <span id="captacaoLiderConv">0</span>% conversão
                     </div>
                 </div>
             </div>
@@ -668,7 +675,10 @@
         media_anos: 0,
         media_percentual_fipe: 0,
         captacao_quantidade: 0,
-        captacao_percentual: 0
+        captacao_percentual: 0,
+        captacao_lider_nome: '-',
+        captacao_lider_qtd: 0,
+        captacao_lider_conversao: 0
     };
     let graficos = {
         modelos_mais_vendidos: [],
@@ -895,7 +905,43 @@
         quadros.captacao_percentual = quadros.total_avaliacoes > 0 
             ? (quadros.captacao_quantidade / quadros.total_avaliacoes) * 100 
             : 0;
-        
+
+        // Líder em Captação (Top 1 do gráfico "Top 20 Vendedores em Captação")
+        const avaliacoesPorVendedorTotal = {};
+        const captacoesPorVendedor = {};
+
+        dadosFiltrados.forEach(item => {
+            const vendedor = item.Vendedor || 'Não informado';
+
+            avaliacoesPorVendedorTotal[vendedor] = (avaliacoesPorVendedorTotal[vendedor] || 0) + 1;
+
+            const campoCompra = item['Data de compra'];
+            if (campoCompra !== undefined && campoCompra !== null && String(campoCompra).trim() !== '') {
+                captacoesPorVendedor[vendedor] = (captacoesPorVendedor[vendedor] || 0) + 1;
+            }
+        });
+
+        let liderNome = '-';
+        let liderQtd = 0;
+        let liderConv = 0;
+
+        Object.keys(captacoesPorVendedor).forEach(vendedor => {
+            const qtd = captacoesPorVendedor[vendedor] || 0;
+            const av = avaliacoesPorVendedorTotal[vendedor] || 0;
+            const conv = av > 0 ? (qtd / av) * 100 : 0;
+
+            // Critério: maior quantidade; empate -> maior conversão
+            if (qtd > liderQtd || (qtd === liderQtd && conv > liderConv)) {
+                liderNome = vendedor;
+                liderQtd = qtd;
+                liderConv = conv;
+            }
+        });
+
+        quadros.captacao_lider_nome = liderNome;
+        quadros.captacao_lider_qtd = liderQtd;
+        quadros.captacao_lider_conversao = liderConv;
+
         atualizarQuadros();
     }
     
@@ -1133,11 +1179,13 @@
         document.getElementById('mediaAnos').textContent = formatadorAno.format(quadros.media_anos);
         document.getElementById('percentualFipe').textContent = formatadorDecimal.format(quadros.media_percentual_fipe) + '%';
 
-        const elemCaptacaoQtd = document.getElementById('captacaoQuantidade');
-        const elemCaptacaoPerc = document.getElementById('captacaoPercentual');
-        if (elemCaptacaoQtd && elemCaptacaoPerc) {
-            elemCaptacaoQtd.textContent = formatadorNumero.format(quadros.captacao_quantidade);
-            elemCaptacaoPerc.textContent = formatadorDecimal.format(quadros.captacao_percentual);
+        const elLiderNome = document.getElementById('captacaoLiderNome');
+        const elLiderQtd = document.getElementById('captacaoLiderQtd');
+        const elLiderConv = document.getElementById('captacaoLiderConv');
+        if (elLiderNome && elLiderQtd && elLiderConv) {
+            elLiderNome.textContent = (quadros.captacao_lider_nome || '-');
+            elLiderQtd.textContent = formatadorNumero.format(quadros.captacao_lider_qtd || 0);
+            elLiderConv.textContent = formatadorDecimal.format(quadros.captacao_lider_conversao || 0);
         }
     }
     
